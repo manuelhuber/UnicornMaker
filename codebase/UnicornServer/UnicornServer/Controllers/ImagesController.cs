@@ -1,37 +1,34 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Http.Description;
-using UnicornServer.Models;
 
 namespace UnicornServer.Controllers
 {
-  [RoutePrefix("/options")]
-  public class OptionsController : ApiController
+  [RoutePrefix("/images")]
+  public class ImagesController : ApiController
   {
-
     [HttpGet]
-    [Route("/unicorns")]
-    [ResponseType(typeof(Option[]))]
-    public IHttpActionResult GetUnicorns ()
+    [Route("/unicorns/{id}")]
+    [ResponseType(typeof(Object))]
+    public IHttpActionResult GetUnicorns()
     {
       return InternalServerError(new Exception("Not yet implemented"));
     }
 
     [HttpGet]
-    [Route("/hats")]
-    [ResponseType(typeof(Option[]))]
+    [Route("/hats/{id}")]
+    [ResponseType(typeof(Object))]
     public IHttpActionResult GetHats()
     {
       return InternalServerError(new Exception("Not yet implemented"));
     }
 
     [HttpGet]
-    [Route("/wings")]
-    [ResponseType(typeof(Option[]))]
+    [Route("/wings/{id}")]
+    [ResponseType(typeof(Object))]
     public IHttpActionResult GetWings()
     {
       return InternalServerError(new Exception("Not yet implemented"));
     }
-
   }
 }
