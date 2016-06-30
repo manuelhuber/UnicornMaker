@@ -5,6 +5,9 @@ using UnicornServer.Models;
 
 namespace UnicornServer.Controllers
 {
+  /// <summary>
+  /// Rest Endpoint for everything related to unicorn bodies
+  /// </summary>
   [RoutePrefix("v1/bodies")]
   public class BodyController : ApiController
   {
