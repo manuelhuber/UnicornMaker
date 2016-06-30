@@ -8,7 +8,7 @@ namespace UnicornServer.Controllers
   /// <summary>
   /// Rest Endpoint for everything related to Unicorns
   /// </summary>
-  [RoutePrefix("v1/unicorn")]
+  [RoutePrefix("v1/unicorns")]
   public class UnicornController : ApiController
   {
     /// <summary>

@@ -5,6 +5,9 @@ using UnicornServer.Models;
 
 namespace UnicornServer.Controllers
 {
+  /// <summary>
+  /// Rest Endpoint for everything related to hats
+  /// </summary>
   [RoutePrefix("v1/hats")]
   public class HatsController : ApiController
   {

@@ -6,7 +6,7 @@ using UnicornServer.Models;
 namespace UnicornServer.Controllers
 {
   /// <summary>
-  /// Master of all of the shoe stuff
+  /// Rest Endpoint for everything related to shoes
   /// </summary>
   [RoutePrefix("v1/shoes")]
   public class ShoesController : ApiController

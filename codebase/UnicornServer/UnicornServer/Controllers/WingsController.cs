@@ -5,6 +5,9 @@ using UnicornServer.Models;
 
 namespace UnicornServer.Controllers
 {
+  /// <summary>
+  /// Rest Endpoint for everything related to wings
+  /// </summary>
   [RoutePrefix("v1/wings")]
   public class WingsController : ApiController
   {
