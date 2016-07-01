@@ -19,7 +19,7 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Option[]))]
     public IHttpActionResult GetWings()
     {
-      return InternalServerError(new Exception("Not yet implemented"));
+      return InternalServerError(new NotImplementedException());
     }
 
     /// <summary>
@@ -30,7 +30,7 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Object))]
     public IHttpActionResult GetWingsImage()
     {
-      return InternalServerError(new Exception("Not yet implemented"));
+      return InternalServerError(new NotImplementedException());
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ namespace UnicornServer.Controllers
     [Authorize]
     public IHttpActionResult AddWings()
     {
-      return InternalServerError(new Exception("Not yet implemented"));
+      return InternalServerError(new NotImplementedException());
     }
 
     /// <summary>
@@ -54,7 +54,7 @@ namespace UnicornServer.Controllers
     [Authorize]
     public IHttpActionResult ModifyWings()
     {
-      return InternalServerError(new Exception("Not yet implemented"));
+      return InternalServerError(new NotImplementedException());
     }
   }
 }

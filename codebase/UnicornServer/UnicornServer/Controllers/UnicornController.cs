@@ -21,7 +21,7 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Unicorn))]
     public IHttpActionResult GetUnicorn(int id)
     {
-      return InternalServerError(new Exception("Not yet implemented"));
+      return InternalServerError(new NotImplementedException());
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Unicorn))]
     public IHttpActionResult AddUnicorn([FromBody] Unicorn unicorn)
     {
-      return InternalServerError(new Exception("Not yet implemented"));
+      return InternalServerError(new NotImplementedException());
     }
   }
 }
