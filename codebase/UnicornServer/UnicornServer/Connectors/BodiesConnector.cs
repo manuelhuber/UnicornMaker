@@ -5,16 +5,16 @@ using UnicornServer.Models;
 
 namespace UnicornServer.Connectors
 {
-  public class BodyConnector
+  public class BodiesConnector
   {
     DatabaseContext _context;
 
-//    public BodyConnector(DatabaseContext context)
+//    public BodiesConnector(DatabaseContext context)
 //    {
 //      _context = context;
 //    }
 
-    public BodyConnector()
+    public BodiesConnector()
     {
       _context = new DatabaseContext();
     }

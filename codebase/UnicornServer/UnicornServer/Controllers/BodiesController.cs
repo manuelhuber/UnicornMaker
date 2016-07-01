@@ -12,9 +12,9 @@ namespace UnicornServer.Controllers
   [RoutePrefix("v1/bodies")]
   public class BodyController : ApiController
   {
-    private readonly BodyConnector _connector;
+    private readonly BodiesConnector _connector;
 
-//    BodyController(BodyConnector bodyConnector)
+//    BodyController(BodiesConnector bodyConnector)
 //    {
 //      _connector = bodyConnector;
 //    }
@@ -22,7 +22,7 @@ namespace UnicornServer.Controllers
 
     BodyController()
     {
-      _connector = new BodyConnector();
+      _connector = new BodiesConnector();
     }
 
     /// <summary>
@@ -30,7 +30,7 @@ namespace UnicornServer.Controllers
     /// </summary>
     [HttpGet]
     [Route("")]
-    [ResponseType(typeof(Option[]))]
+    [ResponseType(typeof(Body[]))]
     public IHttpActionResult GetBodies()
     {
       return Ok(_connector.GetAllBodies());
@@ -52,7 +52,7 @@ namespace UnicornServer.Controllers
     /// </summary>
     [HttpPost]
     [Route("")]
-    [ResponseType(typeof(Option))]
+    [ResponseType(typeof(Body))]
     [Authorize]
     public IHttpActionResult AddBody()
     {
@@ -64,7 +64,7 @@ namespace UnicornServer.Controllers
     /// </summary>
     [HttpPut]
     [Route("{id}")]
-    [ResponseType(typeof(Option))]
+    [ResponseType(typeof(Body))]
     [Authorize]
     public IHttpActionResult ModifyBody()
     {

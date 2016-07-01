@@ -140,7 +140,7 @@
   <ItemGroup>
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Connectors\BodyConnector.cs" />
+    <Compile Include="Connectors\BodiesConnector.cs" />
     <Compile Include="Connectors\HatsConnector.cs" />
     <Compile Include="Controllers\BodiesController.cs" />
     <Compile Include="Controllers\HatsController.cs" />
