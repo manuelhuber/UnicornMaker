@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Http.Description;
+using UnicornServer.Connectors;
 using UnicornServer.Models;
 
 namespace UnicornServer.Controllers
@@ -11,6 +12,19 @@ namespace UnicornServer.Controllers
   [RoutePrefix("v1/bodies")]
   public class BodyController : ApiController
   {
+    private readonly BodyConnector _connector;
+
+//    BodyController(BodyConnector bodyConnector)
+//    {
+//      _connector = bodyConnector;
+//    }
+
+
+    BodyController()
+    {
+      _connector = new BodyConnector();
+    }
+
     /// <summary>
     /// Returns an array of bodies (id + name)
     /// </summary>
@@ -19,7 +33,7 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Option[]))]
     public IHttpActionResult GetBodies()
     {
-      return InternalServerError(new Exception("Not yet implemented"));
+      return Ok(_connector.GetAllBodies());
     }
 
     /// <summary>
@@ -30,7 +44,7 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Object))]
     public IHttpActionResult GetBodyImage()
     {
-      return InternalServerError(new Exception("Not yet implemented"));
+      return InternalServerError(new NotImplementedException());
     }
 
     /// <summary>
@@ -42,7 +56,7 @@ namespace UnicornServer.Controllers
     [Authorize]
     public IHttpActionResult AddBody()
     {
-      return InternalServerError(new Exception("Not yet implemented"));
+      return InternalServerError(new NotImplementedException());
     }
 
     /// <summary>
@@ -54,7 +68,7 @@ namespace UnicornServer.Controllers
     [Authorize]
     public IHttpActionResult ModifyBody()
     {
-      return InternalServerError(new Exception("Not yet implemented"));
+      return InternalServerError(new NotImplementedException());
     }
   }
 }
