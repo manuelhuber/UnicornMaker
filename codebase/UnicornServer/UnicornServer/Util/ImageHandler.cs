@@ -14,17 +14,14 @@ namespace UnicornServer.Util
   public class ImageHandler
   {
     private readonly string _filesDirectory;
-    const string DefaultFileLocation = "Files";
+    // Fallback in case there is nothing in the AppSettings
+    const string DefaultFileLocation = "Images";
     private const string AppSettingsKey = "ImageHandler.FilesLocation";
 
     public ImageHandler()
     {
-      _filesDirectory = DefaultFileLocation;
       var fileLocation = ConfigurationManager.AppSettings[AppSettingsKey];
-      if (!String.IsNullOrWhiteSpace(fileLocation))
-      {
-        _filesDirectory = fileLocation;
-      }
+      _filesDirectory = string.IsNullOrWhiteSpace(fileLocation) ? DefaultFileLocation : fileLocation;
     }
 
     public HttpResponseMessage GetBodyImage(int id)
@@ -50,27 +47,29 @@ namespace UnicornServer.Util
     private HttpResponseMessage GetHttpResponse(string folder, int id)
     {
       string path = "~/" + _filesDirectory + "/" + folder + "/" + id + ".jpg";
-//      if (!Exists(id + ".jpg"))
-//      {
-//        return null;
-//      }
+      if (!Exists(id + ".jpg"))
+      {
+        return new HttpResponseMessage(HttpStatusCode.BadRequest);
+      }
 
       var result = new HttpResponseMessage(HttpStatusCode.OK);
       String filePath = HostingEnvironment.MapPath(path);
-      FileStream fileStream = new FileStream(filePath, FileMode.Open);
-      Image image = Image.FromStream(fileStream);
-      MemoryStream memoryStream = new MemoryStream();
-      image.Save(memoryStream, ImageFormat.Jpeg);
-      result.Content = new ByteArrayContent(memoryStream.ToArray());
-      result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
+      using (var fileStream = new FileStream(filePath, FileMode.Open))
+      {
+        Image image = Image.FromStream(fileStream);
+        MemoryStream memoryStream = new MemoryStream();
+        image.Save(memoryStream, ImageFormat.Jpeg);
+        result.Content = new ByteArrayContent(memoryStream.ToArray());
+        result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
 
-      return result;
+        return result;
+      }
     }
 
     private bool Exists(string name)
     {
       //make sure we dont access directories outside of our store for security reasons
-      string file = Directory.GetFiles(_filesDirectory, name, SearchOption.TopDirectoryOnly)
+      string file = Directory.GetFiles(_filesDirectory, name, SearchOption.AllDirectories)
         .FirstOrDefault();
       return file != null;
     }
