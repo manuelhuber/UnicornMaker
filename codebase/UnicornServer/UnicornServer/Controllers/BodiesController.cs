@@ -1,8 +1,16 @@
 ﻿using System;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Web.Hosting;
 using System.Web.Http;
 using System.Web.Http.Description;
 using UnicornServer.Connectors;
 using UnicornServer.Models;
+using UnicornServer.Util;
 
 namespace UnicornServer.Controllers
 {
@@ -13,6 +21,7 @@ namespace UnicornServer.Controllers
   public class BodyController : ApiController
   {
     private readonly BodiesConnector _connector;
+    private readonly ImageHandler _provider;
 
 //    BodyController(BodiesConnector bodyConnector)
 //    {
@@ -23,6 +32,7 @@ namespace UnicornServer.Controllers
     BodyController()
     {
       _connector = new BodiesConnector();
+      _provider = new ImageHandler();
     }
 
     /// <summary>
@@ -42,9 +52,9 @@ namespace UnicornServer.Controllers
     [HttpGet]
     [Route("{id}")]
     [ResponseType(typeof(Object))]
-    public IHttpActionResult GetBodyImage()
+    public HttpResponseMessage GetBodyImage(int id)
     {
-      return InternalServerError(new NotImplementedException());
+      return _provider.GetBodyImage(id);
     }
 
     /// <summary>
