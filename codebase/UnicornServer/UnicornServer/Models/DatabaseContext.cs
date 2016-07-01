@@ -13,5 +13,6 @@ namespace UnicornServer.Models
     public DbSet<Hat> Hats { get; set; }
     public DbSet<Wings> Wings { get; set; }
     public DbSet<Shoes> Shoes { get; set; }
+    public DbSet<Unicorn> Unicorns { get; set; }
   }
 }

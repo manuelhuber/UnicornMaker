@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Http;
 using System.Web.Http.Description;
+using UnicornServer.Connectors;
 using UnicornServer.Models;
 
 namespace UnicornServer.Controllers
@@ -11,15 +12,28 @@ namespace UnicornServer.Controllers
   [RoutePrefix("v1/hats")]
   public class HatsController : ApiController
   {
+    private readonly HatsConnector _connector;
+
+    //    HatsController(HatsConnector xonnector)
+    //    {
+    //      _connector = connector;
+    //    }
+
+
+    HatsController()
+    {
+      _connector = new HatsConnector();
+    }
+
     /// <summary>
     /// Returns an array of hats (id + name)
     /// </summary>
     [HttpGet]
     [Route("")]
-    [ResponseType(typeof(Option[]))]
+    [ResponseType(typeof(Hat[]))]
     public IHttpActionResult GetHats()
     {
-      return InternalServerError(new NotImplementedException());
+      return Ok(_connector.GetAllHats());
     }
 
     /// <summary>
@@ -38,7 +52,7 @@ namespace UnicornServer.Controllers
     /// </summary>
     [HttpPost]
     [Route("")]
-    [ResponseType(typeof(Option))]
+    [ResponseType(typeof(Hat))]
     [Authorize]
     public IHttpActionResult AddHat()
     {
@@ -50,7 +64,7 @@ namespace UnicornServer.Controllers
     /// </summary>
     [HttpPut]
     [Route("{id}")]
-    [ResponseType(typeof(Option))]
+    [ResponseType(typeof(Hat))]
     [Authorize]
     public IHttpActionResult ModifyHat()
     {
