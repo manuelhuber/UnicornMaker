@@ -1,22 +1,21 @@
 import {Component} from '@angular/core';
 import {Http} from '@angular/http';
 
-
 @Component({
-  selector: 'about',
-  pipes: [],
-  providers: [],
-  directives: [],
-  styleUrls: ['./about.css'],
-  templateUrl: './about.html'
+    selector: 'about',
+    pipes: [],
+    providers: [],
+    directives: [],
+    styleUrls: ['./about.less'],
+    templateUrl: './about.html'
 })
 export class About {
 
-  constructor(http: Http) {
+    constructor (http : Http) {
 
-  }
+    }
 
-  ngOnInit() {
+    ngOnInit () {
 
-  }
+    }
 }

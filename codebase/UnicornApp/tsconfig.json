@@ -9,10 +9,6 @@
     "experimentalDecorators": true,
     "moduleResolution": "node"
   },
-  "files": [
-    // RxJS autocomplete
-    "node_modules/rxjs/Rx.KitchenSink.d.ts"
-  ],
   "exclude": [
     "node_modules"
   ],
@@ -21,7 +17,5 @@
   },
   "compileOnSave": false,
   "buildOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
-  }
+  "atom": { "rewriteTsconfig": false }
 }

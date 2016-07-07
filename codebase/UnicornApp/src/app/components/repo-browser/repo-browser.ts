@@ -8,7 +8,7 @@ import { Github } from '../../services/github';
   providers: [ Github ],
   directives: [ ROUTER_DIRECTIVES ],
   templateUrl: './repo-browser.html',
-  styleUrls: ['./repo-browser.css']
+  styleUrls: ['./repo-browser.less']
 })
 export class RepoBrowser {
 

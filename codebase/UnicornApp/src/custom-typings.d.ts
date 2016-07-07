@@ -29,7 +29,6 @@ import * as _ from 'lodash'
  *
  */
 
-///<reference path="../node_modules/rxjs/Rx.KitchenSink.d.ts"/>
 // Alias legacy import/exports pre rc
 declare module 'angular2/core' {
   export * from '@angular/core';
