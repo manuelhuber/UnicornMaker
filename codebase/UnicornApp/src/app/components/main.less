@@ -1,4 +1,31 @@
 .main {
     width: 100%;
     height: 100%;
+    position: relative;
+}
+
+.next-button, .previous-button {
+    position: absolute;
+    bottom: 20px;
+}
+
+.next-button {
+    right: 20px;
+}
+
+.previous-button {
+    left: 20px;
+}
+
+.main-screen {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 300ms ease;
+}
+
+.hide-up {
+    transform: translateY(-100%);
 }

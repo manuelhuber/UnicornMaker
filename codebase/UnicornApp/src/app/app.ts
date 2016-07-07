@@ -1,15 +1,13 @@
 import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES} from '@angular/router';
-
+import {Main} from './components/main';
 import './app.global.less';
 
 @Component({
     selector: 'app',
     pipes: [],
     providers: [],
-    directives: [ROUTER_DIRECTIVES],
+    directives: [Main],
     templateUrl: './app.html',
-    // styleUrls: ['./app.less']
 })
 export class App {
     constructor () {}
