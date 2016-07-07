@@ -24,7 +24,8 @@ var webpackConfig = {
             // .ts files for TypeScript
             {test: /\.ts$/, loaders: ['awesome-typescript-loader', 'angular2-template-loader']},
             {test: /\.css$/, loaders: ['to-string-loader', 'css-loader']},
-            {test: /\.less$/, loader: 'raw!less'},
+            {test: /\.global.less$/, loader: 'style!css!less'},
+            {test: /\.less$/, exclude: /\.global.less$/, loader: 'raw!less'},
             {test: /\.html$/, loader: 'raw-loader'},
             {test: /\.json$/, loader: 'json-loader'}
 
