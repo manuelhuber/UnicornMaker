@@ -13,22 +13,17 @@ namespace UnicornServer.Controllers
   /// Rest Endpoint for everything related to unicorn bodies
   /// </summary>
   [RoutePrefix("v1/bodies")]
-  public class BodyController : ApiController
+  public class BodiesController : ApiController
   {
-    private readonly BodiesConnector _connector;
-    private readonly ImageHandler _imageHandler;
+    public BodiesConnector Connector { get; set; }
+    public ImageHandler ImageHandler { get; set; }
+//    private readonly BodiesConnector _connector;
+//    private readonly ImageHandler _imageHandler;
 
-//    BodyController(BodiesConnector bodyConnector, ImageHandler handler)
-//    {
-//      _connector = bodyConnector;
-//      _imageHandler = handler;
-//    }
-
-
-    BodyController()
+    public BodiesController(BodiesConnector bodiesConnector, ImageHandler imageHandler)
     {
-      _connector = new BodiesConnector();
-      _imageHandler = new ImageHandler();
+      Connector = bodiesConnector;
+      ImageHandler = imageHandler;
     }
 
     /// <summary>
@@ -39,7 +34,7 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(OptionDTO[]))]
     public IHttpActionResult GetBodies()
     {
-      var bodies = _connector.GetAllBodies();
+      var bodies = Connector.GetAllBodies();
       var dto = new List<OptionDTO>();
       bodies.ForEach(body =>
       {
@@ -57,7 +52,7 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(object))]
     public HttpResponseMessage GetBodyImage(int id)
     {
-      return _imageHandler.GetBodyImage(id);
+      return ImageHandler.GetBodyImage(id);
     }
 
     /// <summary>

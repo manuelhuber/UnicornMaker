@@ -9,14 +9,9 @@ namespace UnicornServer.Connectors
   {
     DatabaseContext _context;
 
-//    public HatConnector(DatabaseContext context)
-//    {
-//      _context = context;
-//    }
-
-    public HatsConnector()
+    public HatsConnector(DatabaseContext context)
     {
-      _context = new DatabaseContext();
+      _context = context;
     }
 
     public List<Hat> GetAllHats()

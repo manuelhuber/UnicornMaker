@@ -9,14 +9,9 @@ namespace UnicornServer.Connectors
   {
     DatabaseContext _context;
 
-//    public BodiesConnector(DatabaseContext context)
-//    {
-//      _context = context;
-//    }
-
-    public BodiesConnector()
+    public BodiesConnector(DatabaseContext context)
     {
-      _context = new DatabaseContext();
+      _context = context;
     }
 
     public List<Body> GetAllBodies()

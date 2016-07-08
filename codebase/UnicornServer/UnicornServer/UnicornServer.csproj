@@ -158,6 +158,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\CommonsModule.cs" />
+    <Compile Include="Infrastructure\IoCContext.cs" />
+    <Compile Include="Infrastructure\RepositoriesModule.cs" />
     <Compile Include="Models\DatabaseContext.cs" />
     <Compile Include="Models\DbInitializer.cs" />
     <Compile Include="Models\Option.cs" />
@@ -179,6 +182,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Infrastructure" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

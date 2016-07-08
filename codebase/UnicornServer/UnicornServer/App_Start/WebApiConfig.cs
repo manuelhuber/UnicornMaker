@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using Autofac.Integration.WebApi;
+using UnicornServer.Infrastructure;
 
 namespace UnicornServer
 {
@@ -19,6 +21,11 @@ namespace UnicornServer
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
+            // Dependency Injection Configuration
+            IoCContext.Initialize(config);
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(IoCContext.Container);
         }
     }
 }
