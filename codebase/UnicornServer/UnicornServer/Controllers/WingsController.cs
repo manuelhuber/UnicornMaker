@@ -1,16 +1,42 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using UnicornServer.Connectors;
 using UnicornServer.Models;
+using UnicornServer.Util;
 
 namespace UnicornServer.Controllers
 {
   /// <summary>
   /// Rest Endpoint for everything related to wings
+  /// Autor: Franziska Haaf
   /// </summary>
   [RoutePrefix("v1/wings")]
   public class WingsController : ApiController
   {
+    /// <summary>
+    /// Connector to the database layer
+    /// </summary>
+    public WingsConnector Connector { get; set; }
+
+    /// <summary>
+    /// Helper class for image streaming
+    /// </summary>
+    public ImageHandler ImageHandler { get; set; }
+
+    /// <summary>
+    /// Default constructor
+    /// </summary>
+    /// <param name="wingsConnector">To be injected</param>
+    /// <param name="imageHandler">To be injected</param>
+    public WingsController(WingsConnector wingsConnector, ImageHandler imageHandler)
+    {
+      Connector = wingsConnector;
+      ImageHandler = imageHandler;
+    }
+
     /// <summary>
     /// Returns an array of wings (id + name)
     /// </summary>
@@ -19,7 +45,14 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Option[]))]
     public IHttpActionResult GetWings()
     {
-      return InternalServerError(new NotImplementedException());
+      var wings = Connector.GetAllWings();
+      var dto = new List<OptionDTO>();
+      wings.ForEach(wing =>
+      {
+        var uri = Url.Link("getWingsImageById", new {id = wing.Id});
+        dto.Add(OptionMapper.optionToDto(wing, uri));
+      });
+      return Ok(dto);
     }
 
     /// <summary>
@@ -28,9 +61,9 @@ namespace UnicornServer.Controllers
     [HttpGet]
     [Route("{id}")]
     [ResponseType(typeof(Object))]
-    public IHttpActionResult GetWingsImage()
+    public HttpResponseMessage GetWingsImage(int id)
     {
-      return InternalServerError(new NotImplementedException());
+      return ImageHandler.GetWingsImage(id);
     }
 
     /// <summary>

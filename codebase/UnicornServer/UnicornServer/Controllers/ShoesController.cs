@@ -1,16 +1,42 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using UnicornServer.Connectors;
 using UnicornServer.Models;
+using UnicornServer.Util;
 
 namespace UnicornServer.Controllers
 {
   /// <summary>
   /// Rest Endpoint for everything related to shoes
+  /// Autor: Franziska Haaf
   /// </summary>
   [RoutePrefix("v1/shoes")]
   public class ShoesController : ApiController
   {
+    /// <summary>
+    /// Connector to the database layer
+    /// </summary>
+    public ShoesConnector Connector { get; set; }
+
+    /// <summary>
+    /// Helper class for image streaming
+    /// </summary>
+    public ImageHandler ImageHandler { get; set; }
+
+    /// <summary>
+    /// Default constructor
+    /// </summary>
+    /// <param name="shoesConnector">To be injected</param>
+    /// <param name="imageHandler">To be injected</param>
+    public ShoesController(ShoesConnector shoesConnector, ImageHandler imageHandler)
+    {
+      Connector = shoesConnector;
+      ImageHandler = imageHandler;
+    }
+
     /// <summary>
     /// Returns an array of shoes (id + name)
     /// </summary>
@@ -19,7 +45,14 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Option[]))]
     public IHttpActionResult GetShoes()
     {
-      return InternalServerError(new NotImplementedException());
+      var shoes = Connector.GetAllShoes();
+      var dto = new List<OptionDTO>();
+      shoes.ForEach(shoe =>
+      {
+        var uri = Url.Link("getShoeImageById", new {id = shoe.Id});
+        dto.Add(OptionMapper.optionToDto(shoe, uri));
+      });
+      return Ok(dto);
     }
 
     /// <summary>
@@ -28,9 +61,9 @@ namespace UnicornServer.Controllers
     [HttpGet]
     [Route("{id}")]
     [ResponseType(typeof(Object))]
-    public IHttpActionResult GetShoesImage()
+    public HttpResponseMessage GetShoesImage(int id)
     {
-      return InternalServerError(new NotImplementedException());
+      return ImageHandler.GetHatImage(id);
     }
 
     /// <summary>

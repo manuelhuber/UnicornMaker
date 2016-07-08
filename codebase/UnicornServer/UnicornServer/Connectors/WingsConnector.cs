@@ -6,10 +6,10 @@ using UnicornServer.Models;
 namespace UnicornServer.Connectors
 {
   /// <summary>
-  /// Offers Hats specific database access
+  /// Offers Wings specific database access
   /// Autor: Franziska Haaf
   /// </summary>
-  public class HatsConnector
+  public class WingsConnector
   {
     /// <summary>
     /// The context to access the database
@@ -20,18 +20,18 @@ namespace UnicornServer.Connectors
     /// Default constructor
     /// </summary>
     /// <param name="context">To be injected</param>
-    public HatsConnector(DatabaseContext context)
+    public WingsConnector(DatabaseContext context)
     {
       Context = context;
     }
 
     /// <summary>
-    /// Gets all hats from the DB
+    /// Gets all wings from the DB
     /// </summary>
-    /// <returns>A list of Hats</returns>
-    public List<Hat> GetAllHats()
+    /// <returns>A list of Wings</returns>
+    public List<Wings> GetAllWings()
     {
-      return Context.Hats.ToList();
+      return Context.Wings.ToList();
     }
   }
 }
