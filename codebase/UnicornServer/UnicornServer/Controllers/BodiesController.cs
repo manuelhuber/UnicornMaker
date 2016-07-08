@@ -41,7 +41,7 @@ namespace UnicornServer.Controllers
     {
       var bodies = _connector.GetAllBodies();
       var dto = new List<OptionDTO>();
-      bodies.ForEach((Body body) =>
+      bodies.ForEach(body =>
       {
         var uri = Url.Link("getBodyImageById", new {id = body.Id});
         dto.Add(OptionMapper.optionToDto(body, uri));
@@ -54,7 +54,7 @@ namespace UnicornServer.Controllers
     /// </summary>
     [HttpGet]
     [Route("{id}", Name = "getBodyImageById")]
-    [ResponseType(typeof(Object))]
+    [ResponseType(typeof(object))]
     public HttpResponseMessage GetBodyImage(int id)
     {
       return _imageHandler.GetBodyImage(id);
