@@ -7,6 +7,7 @@ namespace UnicornServer.Models
     protected override void Seed(DatabaseContext context)
     {
       AddWings(context);
+      AddBodies(context);
       base.Seed(context);
     }
 
@@ -27,7 +28,6 @@ namespace UnicornServer.Models
       context.Bodies.Add(new Body() {Id = 3, Name = "Purple Unicorn"});
       context.Bodies.Add(new Body() {Id = 4, Name = "Red Unicorn"});
       context.Bodies.Add(new Body() {Id = 5, Name = "Yellow Unicorn"});
-
     }
   }
 }

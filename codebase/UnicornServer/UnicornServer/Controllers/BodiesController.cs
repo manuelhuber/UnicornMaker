@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using UnicornServer.Connectors;
 using UnicornServer.Models;
@@ -12,44 +14,56 @@ namespace UnicornServer.Controllers
   /// Rest Endpoint for everything related to unicorn bodies
   /// </summary>
   [RoutePrefix("v1/bodies")]
-  public class BodyController : ApiController
+  public class BodiesController : ApiController
   {
-    private readonly BodiesConnector _connector;
-    private readonly ImageHandler _imageHandler;
+    /// <summary>
+    /// Connector to the database layer
+    /// </summary>
+    public BodiesConnector Connector { get; set; }
 
-//    BodyController(BodiesConnector bodyConnector, ImageHandler handler)
-//    {
-//      _connector = bodyConnector;
-//      _imageHandler = handler;
-//    }
+    /// <summary>
+    /// Helper class for image streaming
+    /// </summary>
+    public ImageHandler ImageHandler { get; set; }
 
-
-    BodyController()
+    /// <summary>
+    /// Default constructor
+    /// </summary>
+    /// <param name="bodiesConnector">To be injected</param>
+    /// <param name="imageHandler">To be injected</param>
+    public BodiesController(BodiesConnector bodiesConnector, ImageHandler imageHandler)
     {
-      _connector = new BodiesConnector();
-      _imageHandler = new ImageHandler();
+      Connector = bodiesConnector;
+      ImageHandler = imageHandler;
     }
 
     /// <summary>
-    /// Returns an array of bodies (id + name)
+    /// Returns an array of bodies (id, name & image url)
     /// </summary>
     [HttpGet]
     [Route("")]
-    [ResponseType(typeof(Body[]))]
+    [ResponseType(typeof(OptionDTO[]))]
     public IHttpActionResult GetBodies()
     {
-      return Ok(_connector.GetAllBodies());
+      var bodies = Connector.GetAllBodies();
+      var dto = new List<OptionDTO>();
+      bodies.ForEach(body =>
+      {
+        var uri = Url.Link("getBodyImageById", new {id = body.Id});
+        dto.Add(OptionMapper.optionToDto(body, uri));
+      });
+      return Ok(dto);
     }
 
     /// <summary>
     /// The image url for the body with the given ID
     /// </summary>
     [HttpGet]
-    [Route("{id}")]
-    [ResponseType(typeof(Object))]
+    [Route("{id}", Name = "getBodyImageById")]
+    [ResponseType(typeof(object))]
     public HttpResponseMessage GetBodyImage(int id)
     {
-      return _imageHandler.GetBodyImage(id);
+      return ImageHandler.GetBodyImage(id);
     }
 
     /// <summary>

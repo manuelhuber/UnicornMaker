@@ -1,0 +1,16 @@
+﻿Flow:
+Controller HTTP Endpunkt
+-> Controller ruft Connector auf zum laden etc
+-> Connector ruft DatabaseContext auf
+
+Todo allgemein:
+Dependency Injection einrichten
+
+Todo für jede Option:
+Controller Funktionen implementieren
+Connector erstellen / implementieren
+Dependency injection konfigurieren (in RepositoriesModule)
+In den dbinitializer Daten eintragen / Bilder bennen (namensconvention beachten!)
+
+
+Komplett fertig (zum abschauen): Bodies

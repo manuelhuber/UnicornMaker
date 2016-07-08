@@ -5,28 +5,32 @@ using UnicornServer.Models;
 
 namespace UnicornServer.Connectors
 {
+  /// <summary>
+  /// Offers Body specific database access
+  /// </summary>
   public class BodiesConnector
   {
-    DatabaseContext _context;
+    /// <summary>
+    /// The context to access the databse
+    /// </summary>
+    public DatabaseContext Context { get; set; }
 
-//    public BodiesConnector(DatabaseContext context)
-//    {
-//      _context = context;
-//    }
-
-    public BodiesConnector()
+    /// <summary>
+    /// Default constructor
+    /// </summary>
+    /// <param name="context">To be injected</param>
+    public BodiesConnector(DatabaseContext context)
     {
-      _context = new DatabaseContext();
+      Context = context;
     }
 
+    /// <summary>
+    /// Gets all bodies from the DB
+    /// </summary>
+    /// <returns>A list of Bodies</returns>
     public List<Body> GetAllBodies()
     {
-      return _context.Bodies.ToList();
-    }
-
-    public Body GetBodyById(int id)
-    {
-      return _context.Bodies.Find(id);
+      return Context.Bodies.ToList();
     }
   }
 }

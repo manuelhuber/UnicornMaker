@@ -14,15 +14,9 @@ namespace UnicornServer.Controllers
   {
     private readonly HatsConnector _connector;
 
-    //    HatsController(HatsConnector xonnector)
-    //    {
-    //      _connector = connector;
-    //    }
-
-
-    HatsController()
+    public HatsController(HatsConnector connector)
     {
-      _connector = new HatsConnector();
+      _connector = connector;
     }
 
     /// <summary>
