@@ -18,7 +18,7 @@ namespace UnicornServer
       // Web API routes
       config.MapHttpAttributeRoutes();
 
-      var cors = new EnableCorsAttribute("www.example.com", "*", "*");
+      var cors = new EnableCorsAttribute("http://localhost:3000", "*", "*");
       config.EnableCors(cors);
 
       config.Routes.MapHttpRoute(
