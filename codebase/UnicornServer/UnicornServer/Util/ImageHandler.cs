@@ -46,7 +46,7 @@ namespace UnicornServer.Util
 
     private HttpResponseMessage GetHttpResponse(string folder, int id)
     {
-      string path = "~/" + _filesDirectory + "/" + folder + "/" + id + ".jpg";
+      string path = "~/" + _filesDirectory + "/" + folder + "/" + folder + "_" + id + ".png";
       if (!Exists(id + ".jpg"))
       {
         return new HttpResponseMessage(HttpStatusCode.BadRequest);

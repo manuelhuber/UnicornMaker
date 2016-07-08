@@ -9,6 +9,11 @@ namespace UnicornServer.Models
     {
     }
 
+    static DatabaseContext()
+    {
+      System.Data.Entity.Database.SetInitializer<DatabaseContext>(new DbInitializer());
+    }
+
     public DbSet<Body> Bodies { get; set; }
     public DbSet<Hat> Hats { get; set; }
     public DbSet<Wings> Wings { get; set; }
