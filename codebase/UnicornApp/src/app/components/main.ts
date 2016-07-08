@@ -6,23 +6,30 @@ import {UnicornStation} from './unicorn-station/unicorn-station';
 import {SaveScreen} from './save-screen/save-screen';
 
 @Component({
-    selector: 'main',
-    pipes: [],
-    providers: [],
-    directives: [WelcomeScreen, UnicornStation, SaveScreen, NgIf],
-    templateUrl: './main.html',
-    styleUrls: ['./main.less']
+  selector: 'main',
+  pipes: [],
+  providers: [],
+  directives: [WelcomeScreen, UnicornStation, SaveScreen, NgIf],
+  templateUrl: './main.html',
+  styleUrls: ['./main.less']
 })
 export class Main {
-    show : number = 0;
-    total : number = 2;
+  public show : number = 0;
+  public total : number = 2;
+  public boundNext : Function;
+  public boundPrevious : Function;
 
-    next () {
-        this.show++;
-    }
+  public ngOnInit () {
+    this.boundNext = this.next.bind(this);
+    this.boundPrevious = this.previous.bind(this);
+  }
 
-    previous () {
-        this.show--;
-    }
+  public next () {
+    this.show++;
+  }
+
+  public previous () {
+    this.show--;
+  }
 
 }

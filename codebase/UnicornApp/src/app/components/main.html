@@ -1,7 +1,14 @@
 <div class="main">
-    <save-screen class="main-screen" [class.hide-up]="show > 2"></save-screen>
-    <unicorn-station class="main-screen" [class.hide-up]="show > 1"></unicorn-station>
-    <welcome-screen class="main-screen" [class.hide-up]="show > 0"></welcome-screen>
-    <button *ngIf="show < total " class="next-button" (click)="next()">Next!</button>
-    <button *ngIf="show > 0" class="previous-button" (click)="previous()">Previous</button>
+  <save-screen class="main-screen"
+               [previous]="boundPrevious"
+               [class.hide-up]="show > 2"></save-screen>
+  <unicorn-station class="main-screen"
+                   [next]="boundNext"
+                   [previous]="boundPrevious"
+                   [class.hide-up]="show > 1"></unicorn-station>
+  <welcome-screen class="main-screen"
+                  [next]="boundNext"
+                  [class.hide-up]="show > 0"></welcome-screen>
+  <!--<button *ngIf="show < total " class="next-button" (click)="next()">Next!</button>-->
+  <!--<button *ngIf="show > 0" class="previous-button" (click)="previous()">Previous</button>-->
 </div>
