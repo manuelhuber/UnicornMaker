@@ -46,8 +46,9 @@ namespace UnicornServer.Util
 
     private HttpResponseMessage GetHttpResponse(string folder, int id)
     {
-      var path = "~/" + _filesDirectory + "/" + folder + "/" + folder + "_" + id + ".png";
-      if (!Exists(id + ".jpg"))
+      var filename = folder + "_" + id + ".png";
+      var path = "~/" + _filesDirectory + "/" + folder + "/" + filename;
+      if (!Exists(filename))
       {
         return new HttpResponseMessage(HttpStatusCode.BadRequest);
       }
@@ -58,9 +59,9 @@ namespace UnicornServer.Util
       {
         var image = Image.FromStream(fileStream);
         var memoryStream = new MemoryStream();
-        image.Save(memoryStream, ImageFormat.Jpeg);
+        image.Save(memoryStream, ImageFormat.Png);
         result.Content = new ByteArrayContent(memoryStream.ToArray());
-        result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
+        result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/png");
 
         return result;
       }
