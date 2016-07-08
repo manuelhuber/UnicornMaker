@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -31,21 +32,28 @@ namespace UnicornServer.Controllers
     }
 
     /// <summary>
-    /// Returns an array of bodies (id + name)
+    /// Returns an array of bodies (id, name & image url)
     /// </summary>
     [HttpGet]
     [Route("")]
-    [ResponseType(typeof(Body[]))]
+    [ResponseType(typeof(OptionDTO[]))]
     public IHttpActionResult GetBodies()
     {
-      return Ok(_connector.GetAllBodies());
+      var bodies = _connector.GetAllBodies();
+      var dto = new List<OptionDTO>();
+      bodies.ForEach((Body body) =>
+      {
+        var uri = Url.Link("getBodyImageById", new {id = body.Id});
+        dto.Add(OptionMapper.optionToDto(body, uri));
+      });
+      return Ok(dto);
     }
 
     /// <summary>
     /// The image url for the body with the given ID
     /// </summary>
     [HttpGet]
-    [Route("{id}")]
+    [Route("{id}", Name = "getBodyImageById")]
     [ResponseType(typeof(Object))]
     public HttpResponseMessage GetBodyImage(int id)
     {

@@ -46,18 +46,18 @@ namespace UnicornServer.Util
 
     private HttpResponseMessage GetHttpResponse(string folder, int id)
     {
-      string path = "~/" + _filesDirectory + "/" + folder + "/" + folder + "_" + id + ".png";
+      var path = "~/" + _filesDirectory + "/" + folder + "/" + folder + "_" + id + ".png";
       if (!Exists(id + ".jpg"))
       {
         return new HttpResponseMessage(HttpStatusCode.BadRequest);
       }
 
       var result = new HttpResponseMessage(HttpStatusCode.OK);
-      String filePath = HostingEnvironment.MapPath(path);
+      var filePath = HostingEnvironment.MapPath(path);
       using (var fileStream = new FileStream(filePath, FileMode.Open))
       {
-        Image image = Image.FromStream(fileStream);
-        MemoryStream memoryStream = new MemoryStream();
+        var image = Image.FromStream(fileStream);
+        var memoryStream = new MemoryStream();
         image.Save(memoryStream, ImageFormat.Jpeg);
         result.Content = new ByteArrayContent(memoryStream.ToArray());
         result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
@@ -69,7 +69,7 @@ namespace UnicornServer.Util
     private bool Exists(string name)
     {
       //make sure we dont access directories outside of our store for security reasons
-      string file = Directory.GetFiles(_filesDirectory, name, SearchOption.AllDirectories)
+      var file = Directory.GetFiles(_filesDirectory, name, SearchOption.AllDirectories)
         .FirstOrDefault();
       return file != null;
     }
