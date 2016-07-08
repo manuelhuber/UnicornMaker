@@ -1,10 +1,11 @@
 import {Component, Input} from '@angular/core';
+import {OptionMenu} from "./option-menu/option-menu";
 
 @Component({
   selector: 'unicorn-station',
   pipes: [],
   providers: [],
-  directives: [],
+  directives: [OptionMenu],
   templateUrl: './unicorn-station.html',
   styleUrls: ['./unicorn-station.less']
 })
