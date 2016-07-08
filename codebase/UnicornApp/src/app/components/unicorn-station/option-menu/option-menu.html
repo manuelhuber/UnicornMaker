@@ -1,3 +1,33 @@
 <div class="option-menu">
   Options Menu!
+
+  <div>bodies</div>
+  <div class="option-menu-category">
+    <div class="option-menu-entry-wrapper" *ngFor="let body of bodies">
+      <option-menu-entry [option]="body"></option-menu-entry>
+    </div>
+  </div>
+
+  <div>hats</div>
+  <div class="option-menu-category" *ngIf="hats">
+    <div class="option-menu-entry-wrapper" *ngFor="let hat of hats">
+      <option-menu-entry [option]="hat"></option-menu-entry>
+    </div>
+  </div>
+
+  <div>wings</div>
+  <div class="option-menu-category" *ngIf="wings">
+    <div class="option-menu-entry-wrapper" *ngFor="let wing of wings">
+      <option-menu-entry [option]="wing"></option-menu-entry>
+    </div>
+  </div>
+
+  <div>shoes</div>
+  <div class="option-menu-category" *ngIf="shoes">
+    <div class="option-menu-entry-wrapper" *ngFor="let shoe of shoes">
+      <option-menu-entry [option]="shoe"></option-menu-entry>
+    </div>
+  </div>
+
+
 </div>

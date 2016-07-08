@@ -19,4 +19,8 @@ export class UnicornStation {
   @Input()
   previous : Function;
 
+  save () : void {
+    // TODO: save unicorn
+    this.next();
+  }
 }
