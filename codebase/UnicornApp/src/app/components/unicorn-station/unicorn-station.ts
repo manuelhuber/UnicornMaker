@@ -8,6 +8,10 @@ import {Component, Input} from '@angular/core';
   templateUrl: './unicorn-station.html',
   styleUrls: ['./unicorn-station.less']
 })
+/**
+ * The working station where unicorns are modified
+ * Written by Manuel Huber
+ */
 export class UnicornStation {
   @Input()
   next : Function;

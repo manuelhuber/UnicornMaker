@@ -8,6 +8,10 @@ import {Component, Input} from '@angular/core';
   templateUrl: './save-screen.html',
   styleUrls: ['./save-screen.less']
 })
+/**
+ * The save page for the application
+ * Written by Franziska Haaf
+ */
 export class SaveScreen {
   @Input()
   previous : Function;

@@ -9,6 +9,10 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./welcome-screen.less']
 
 })
+/**
+ * The landing page for the app
+ * Written by Franziska Haaf
+ */
 export class WelcomeScreen {
   @Input() next : Function;
 

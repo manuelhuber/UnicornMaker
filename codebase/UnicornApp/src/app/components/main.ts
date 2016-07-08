@@ -4,12 +4,13 @@ import {NgIf} from '@angular/common'
 import {WelcomeScreen} from './welcome-screen/welcome-screen';
 import {UnicornStation} from './unicorn-station/unicorn-station';
 import {SaveScreen} from './save-screen/save-screen';
+import {UnicornDisplay} from "./unicorn-display/unicorn-display";
 
 @Component({
   selector: 'main',
   pipes: [],
   providers: [],
-  directives: [WelcomeScreen, UnicornStation, SaveScreen, NgIf],
+  directives: [WelcomeScreen, UnicornStation, SaveScreen, UnicornDisplay, NgIf],
   templateUrl: './main.html',
   styleUrls: ['./main.less']
 })
