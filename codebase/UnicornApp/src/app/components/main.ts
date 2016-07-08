@@ -6,17 +6,18 @@ import {UnicornStation} from './unicorn-station/unicorn-station';
 import {SaveScreen} from './save-screen/save-screen';
 import {UnicornDisplay} from "./unicorn-display/unicorn-display";
 import {OptionService} from "../services/option-service";
+import {UnicornService} from "../services/unicorn-service";
 
 @Component({
   selector: 'main',
   pipes: [],
-  providers: [OptionService],
+  providers: [OptionService, UnicornService],
   directives: [WelcomeScreen, UnicornStation, SaveScreen, UnicornDisplay, NgIf],
   templateUrl: './main.html',
   styleUrls: ['./main.less']
 })
 /**
- * The 
+ * The
  * Written by Manuel Huber
  */
 export class Main {
