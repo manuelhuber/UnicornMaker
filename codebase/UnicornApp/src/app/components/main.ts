@@ -21,7 +21,7 @@ import {UnicornService} from "../services/unicorn-service";
  * Written by Manuel Huber
  */
 export class Main {
-  public show : number = 0;
+  public show : number = 1;
   public total : number = 2;
   public boundNext : Function;
   public boundPrevious : Function;
