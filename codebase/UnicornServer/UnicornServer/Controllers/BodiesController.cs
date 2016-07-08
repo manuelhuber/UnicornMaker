@@ -15,11 +15,21 @@ namespace UnicornServer.Controllers
   [RoutePrefix("v1/bodies")]
   public class BodiesController : ApiController
   {
+    /// <summary>
+    /// Connector to the database layer
+    /// </summary>
     public BodiesConnector Connector { get; set; }
-    public ImageHandler ImageHandler { get; set; }
-//    private readonly BodiesConnector _connector;
-//    private readonly ImageHandler _imageHandler;
 
+    /// <summary>
+    /// Helper class for image streaming
+    /// </summary>
+    public ImageHandler ImageHandler { get; set; }
+
+    /// <summary>
+    /// Default constructor
+    /// </summary>
+    /// <param name="bodiesConnector">To be injected</param>
+    /// <param name="imageHandler">To be injected</param>
     public BodiesController(BodiesConnector bodiesConnector, ImageHandler imageHandler)
     {
       Connector = bodiesConnector;
