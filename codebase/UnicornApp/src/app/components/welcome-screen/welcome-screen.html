@@ -1,4 +1,24 @@
 <div class="welcome-screen full-size">
-    Welcome!
-  <button (click)="next()">Ok!</button>
+  <div class="content">
+    <div>
+      <!--LEFT-->
+      <div class="div-left width50">
+        <!--Bubble-->
+        <div>
+          <img src="/app/assets/welcome.png" alt="Hey!" class="image100"/>
+        </div>
+        <!--Description-->
+        <div class="textalign-center">
+          <span class="description-text">Create your personal Unicorn!</span>
+          <div class="button-container textalign-center">
+            <button (click)="next()" class="button">Do magical things...</button>
+          </div>
+        </div>
+      </div>
+      <!--RIGHT-->
+      <div class="div-right width50">
+        <img src="/app/assets/unicorn.png" alt="Look! A unicorn!" class="image100"/>
+      </div>
+    </div>
+  </div>
 </div>

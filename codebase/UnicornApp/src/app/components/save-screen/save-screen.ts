@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input} from "@angular/core";
 
 @Component({
   selector: 'save-screen',
@@ -14,5 +14,8 @@ import {Component, Input} from '@angular/core';
  */
 export class SaveScreen {
   @Input()
-  previous : Function;
+  previous:Function;
+
+  unicornlink:string = "http://www.unicorn-maker.com/unicorn/blablaba";
+
 }

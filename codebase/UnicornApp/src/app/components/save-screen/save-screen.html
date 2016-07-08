@@ -1,4 +1,14 @@
 <div class="save-screen full-size">
-  <button (click)="previous()">Previous</button>
-  save me
+  <div class="content">
+    <div class="text">
+      <span class="bigger-text">WOW!</span> [customized-name-here] looks amazing!
+      <p>Show your Unicorn to your friends with the following link:</p>
+    </div>
+    <div class="unicornlink-box" (click)="copyLinkToClipboard()">
+      {{unicornlink}}
+    </div>
+    <div class="textalign-center button-margin">
+      <button (click)="previous()" class="button">Go back editing</button>
+    </div>
+  </div>
 </div>
