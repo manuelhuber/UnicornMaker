@@ -11,6 +11,6 @@ import {App} from './app/app';
 bootstrap(App, [
   HTTP_PROVIDERS,
   // APP_ROUTER_PROVIDERS,
-  {provide: LocationStrategy, useClass: HashLocationStrategy}
+  { provide: LocationStrategy, useClass: HashLocationStrategy }
 ])
-  .catch(err => console.error(err));
+.catch(err => console.error(err));

@@ -49,5 +49,4 @@ declare module 'angular2/testing' {
 declare module 'angular2/http/testing' {
   export * from '@angular/http/testing';
 }
-/// <reference path="./app/model/unicorn.d.ts" />
 /// <reference path="./app/model/option.d.ts" />

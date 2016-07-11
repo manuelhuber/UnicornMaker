@@ -1,6 +1,5 @@
 import {Component, Input} from '@angular/core';
 import {OptionMenu} from "./option-menu/option-menu";
-import {UnicornService} from "../../services/unicorn-service";
 
 @Component({
   selector: 'unicorn-station',
@@ -19,23 +18,9 @@ export class UnicornStation {
   next : Function;
   @Input()
   previous : Function;
-  i : number = 0;
-
-  constructor (private unicornService : UnicornService) {
-
-  }
 
   save () : void {
     // TODO: save unicorn
     this.next();
-  }
-
-  nameIt () {
-    console.log('naming');
-    this.unicornService.setName('foobar');
-  }
-
-  bodyChange (id : number) : void {
-    this.unicornService.setBody(this.i++);
   }
 }
