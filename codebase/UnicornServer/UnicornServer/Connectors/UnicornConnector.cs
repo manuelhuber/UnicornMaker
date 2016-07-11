@@ -41,5 +41,10 @@ namespace UnicornServer.Connectors
     {
       Context.Unicorns.Add(unicorn);
     }
+
+    public Unicorn GetUnicornById(int id)
+    {
+      return Context.Unicorns.Find(id);
+    }
   }
 }

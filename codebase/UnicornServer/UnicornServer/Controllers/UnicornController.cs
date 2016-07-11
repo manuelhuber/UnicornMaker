@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Http.Description;
 using UnicornServer.Connectors;
 using UnicornServer.Models;
-using UnicornServer.Util;
 
 namespace UnicornServer.Controllers
 {
@@ -42,16 +38,7 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Unicorn))]
     public Unicorn GetUnicorn(int id)
     {
-      var unicornWithId = new Unicorn();
-      var unicorns = Connector.GetAllUnicorns();
-      unicorns.ForEach(unicorn =>
-      {
-        if (unicorn.Id == id)
-        {
-          unicornWithId = unicorn;
-        }
-      });
-      return unicornWithId;
+      return Connector.GetUnicornById(id);
     }
 
     /// <summary>
