@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs'
 
-
 @Injectable()
 /**
  * The service responsible for fetching all available options
@@ -32,10 +31,23 @@ export class UnicornService {
   }
 
   setBody (id : number) : void {
-    console.log('setting body id');
     this.unicorn.body = id;
     this.unicornSubject.next(this.unicorn);
   }
 
+  setHat (id : number) : void {
+    this.unicorn.hat = id;
+    this.unicornSubject.next(this.unicorn);
+  }
+
+  setWings (id : number) : void {
+    this.unicorn.wings = id;
+    this.unicornSubject.next(this.unicorn);
+  }
+
+  setShoes (id : number) : void {
+    this.unicorn.shoes = id;
+    this.unicornSubject.next(this.unicorn);
+  }
 
 }

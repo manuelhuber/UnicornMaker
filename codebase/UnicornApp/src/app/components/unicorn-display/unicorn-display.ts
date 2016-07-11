@@ -20,8 +20,6 @@ export class UnicornDisplay {
   constructor (unicornService : UnicornService, private optionService : OptionService) {
     console.log(unicornService.getUnicorn().getValue());
     unicornService.getUnicorn().subscribe((unicorn : Unicorn) => {
-      console.log('update: ');
-      console.log(unicorn);
       this.updateUrls(unicorn);
     });
   }

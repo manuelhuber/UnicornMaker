@@ -1,0 +1,5 @@
+<div class="option-menu-category">
+  <div class="option-menu-entry-wrapper" *ngFor="let option of options">
+    <option-menu-entry [option]="option" (click)="changeId(option.id)"></option-menu-entry>
+  </div>
+</div>

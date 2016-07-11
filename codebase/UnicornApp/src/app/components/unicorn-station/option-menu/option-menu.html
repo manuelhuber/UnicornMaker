@@ -1,33 +1,14 @@
 <div class="option-menu full-size">
-  Options Menu!
+  <div>Options Menu!</div>
+
 
   <div>bodies</div>
-  <div class="option-menu-category">
-    <div class="option-menu-entry-wrapper" *ngFor="let body of bodies">
-      <option-menu-entry [option]="body"></option-menu-entry>
-    </div>
-  </div>
-
+  <option-menu-category [options]="bodies" [id]="bodyId" (update)="updateBody($event)"></option-menu-category>
   <div>hats</div>
-  <div class="option-menu-category" *ngIf="hats">
-    <div class="option-menu-entry-wrapper" *ngFor="let hat of hats">
-      <option-menu-entry [option]="hat"></option-menu-entry>
-    </div>
-  </div>
-
+  <option-menu-category [options]="hats" [id]="hatId" (update)="updateHat($event)"></option-menu-category>
   <div>wings</div>
-  <div class="option-menu-category" *ngIf="wings">
-    <div class="option-menu-entry-wrapper" *ngFor="let wing of wings">
-      <option-menu-entry [option]="wing"></option-menu-entry>
-    </div>
-  </div>
-
+  <option-menu-category [options]="wings" [id]="wingsId" (update)="updateWings($event)"></option-menu-category>
   <div>shoes</div>
-  <div class="option-menu-category" *ngIf="shoes">
-    <div class="option-menu-entry-wrapper" *ngFor="let shoe of shoes">
-      <option-menu-entry [option]="shoe"></option-menu-entry>
-    </div>
-  </div>
-
+  <option-menu-category [options]="shoes" [id]="shoesId" (update)="updateShoes($event)"></option-menu-category>
 
 </div>

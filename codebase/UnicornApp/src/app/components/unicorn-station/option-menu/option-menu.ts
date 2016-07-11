@@ -1,13 +1,14 @@
 import {Component} from '@angular/core';
 import {NgFor, NgIf} from '@angular/common'
 import {OptionService} from "../../../services/option-service";
-import {OptionMenuEntry} from "./option-menu-entry/option-menu-entry";
+import {OptionMenuCategory} from './option-menu-category/option-menu-category';
+import {UnicornService} from '../../../services/unicorn-service';
 
 @Component({
   selector: 'option-menu',
   pipes: [],
   providers: [OptionService],
-  directives: [OptionMenuEntry, NgFor, NgIf],
+  directives: [OptionMenuCategory, NgFor, NgIf],
   templateUrl: './option-menu.html',
   styleUrls: ['./option-menu.less']
 })
@@ -21,8 +22,12 @@ export class OptionMenu {
   wings : Option[];
   shoes : Option[];
 
+  bodyId : number;
+  hatId : number;
+  wingsId : number;
+  shoesId : number;
 
-  constructor (optionService : OptionService) {
+  constructor (optionService : OptionService, private unicornService : UnicornService) {
     optionService.getBodies().subscribe((bodies : Option[]) => {
       this.bodies = bodies;
       console.log(this.bodies);
@@ -39,5 +44,21 @@ export class OptionMenu {
     //   this.shoes = shoes;
     //   console.log(this.shoes);
     // });
+  }
+
+  updateBody (id : number) : void {
+    this.unicornService.setBody(id);
+  }
+
+  updateHat (id : number) : void {
+    this.unicornService.setHat(id);
+  }
+
+  updateWings (id : number) : void {
+    this.unicornService.setWings(id);
+  }
+
+  updateShoes (id : number) : void {
+    this.unicornService.setShoes(id);
   }
 }
