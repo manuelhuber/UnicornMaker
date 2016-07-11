@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.Results;
 using UnicornServer.Connectors;
 using UnicornServer.Models;
 
@@ -34,7 +35,7 @@ namespace UnicornServer.Controllers
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpGet]
-    [Route("{id}")]
+    [Route("{id}", Name = "getUnicornById")]
     [ResponseType(typeof(Unicorn))]
     public Unicorn GetUnicorn(int id)
     {
@@ -49,9 +50,11 @@ namespace UnicornServer.Controllers
     [HttpPost]
     [Route("")]
     [ResponseType(typeof(Unicorn))]
-    public Unicorn AddUnicorn([FromBody] Unicorn unicorn)
+    public CreatedNegotiatedContentResult<Unicorn> AddUnicorn([FromBody] Unicorn unicorn)
     {
-      return Connector.AddUnicorn(unicorn);
+      var uni = Connector.AddUnicorn(unicorn);
+      var uri = Url.Link("getUnicornById", new {id = uni.Id});
+      return Created(uri, uni);
     }
   }
 }
