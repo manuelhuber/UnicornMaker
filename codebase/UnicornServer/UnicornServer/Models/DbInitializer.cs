@@ -30,5 +30,20 @@ namespace UnicornServer.Models
       context.Bodies.Add(new Body() {Id = 5, Name = "Yellow Unicorn"});
       context.Bodies.Add(new Body() {Id = 6, Name = "Pink Unicorn"});
     }
+
+    private void AddShoes(DatabaseContext context)
+    {
+      context.Shoes.Add(new Shoes() {Id = 1, Name = "Blue Shoes"});
+      context.Shoes.Add(new Shoes() {Id = 2, Name = "Purple Shoes"});
+      context.Shoes.Add(new Shoes() {Id = 3, Name = "Red Shoes"});
+    }
+
+    private void AddHats(DatabaseContext context)
+    {
+      context.Hats.Add(new Hat() {Id = 1, Name = "Blue Hat"});
+      context.Hats.Add(new Hat() {Id = 2, Name = "Purple Hat"});
+      context.Hats.Add(new Hat() {Id = 3, Name = "Red Hat"});
+      context.Hats.Add(new Hat() {Id = 4, Name = "Yellow Hat"});
+    }
   }
 }
