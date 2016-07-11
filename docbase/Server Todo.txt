@@ -4,13 +4,13 @@ Controller HTTP Endpunkt
 -> Connector ruft DatabaseContext auf
 
 Todo allgemein:
-Dependency Injection einrichten
+Dependency Injection einrichten (Manu)
 
 Todo für jede Option:
-Controller Funktionen implementieren
-Connector erstellen / implementieren
-Dependency injection konfigurieren (in RepositoriesModule)
-In den dbinitializer Daten eintragen / Bilder bennen (namensconvention beachten!)
+/ Controller Funktionen implementieren 
+/ Connector erstellen / implementieren
+/ Dependency injection konfigurieren (in RepositoriesModule) don
+/ In den dbinitializer Daten eintragen / Bilder bennen (namensconvention beachten!)
 
 
 Komplett fertig (zum abschauen): Bodies
