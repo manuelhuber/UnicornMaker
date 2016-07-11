@@ -49,9 +49,9 @@ namespace UnicornServer.Controllers
     [HttpPost]
     [Route("")]
     [ResponseType(typeof(Unicorn))]
-    public void AddUnicorn([FromBody] Unicorn unicorn)
+    public Unicorn AddUnicorn([FromBody] Unicorn unicorn)
     {
-      Connector.AddUnicorn(unicorn);
+      return Connector.AddUnicorn(unicorn);
     }
   }
 }

@@ -7,10 +7,10 @@ Todo allgemein:
 Dependency Injection einrichten
 
 Todo für jede Option:
-Controller Funktionen implementieren
-Connector erstellen / implementieren
-Dependency injection konfigurieren (in RepositoriesModule)
-In den dbinitializer Daten eintragen / Bilder bennen (namensconvention beachten!)
+X Controller Funktionen implementieren (Auch die bild URL für Methoden getAllBlabla; siehe BodyController)
+  Connector erstellen / implementieren
+  Dependency injection konfigurieren (in RepositoriesModule) (Habe ich gemacht)
+X In den models/dbinitializer.cs Daten eintragen und Bilder entsprechend der ID bennen (namensconvention beachten!)
 
 
 Komplett fertig (zum abschauen): Bodies
