@@ -7,10 +7,9 @@ Todo allgemein:
 Dependency Injection einrichten (Manu)
 
 Todo für jede Option:
-/ Controller Funktionen implementieren 
+/ Controller Funktionen implementieren
 / Connector erstellen / implementieren
 / Dependency injection konfigurieren (in RepositoriesModule) don
 / In den dbinitializer Daten eintragen / Bilder bennen (namensconvention beachten!)
-
 
 Komplett fertig (zum abschauen): Bodies
