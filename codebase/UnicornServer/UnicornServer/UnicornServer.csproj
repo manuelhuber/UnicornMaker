@@ -158,6 +158,9 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Connectors\BodiesConnector.cs" />
     <Compile Include="Connectors\HatsConnector.cs" />
+    <Compile Include="Connectors\ShoesConnector.cs" />
+    <Compile Include="Connectors\UnicornConnector.cs" />
+    <Compile Include="Connectors\WingsConnector.cs" />
     <Compile Include="Controllers\BodiesController.cs" />
     <Compile Include="Controllers\HatsController.cs" />
     <Compile Include="Controllers\ShoesController.cs" />
