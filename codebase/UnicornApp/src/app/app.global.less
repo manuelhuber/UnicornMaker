@@ -20,22 +20,25 @@ html, body {
 }
 
 .button {
-  padding: 20px;
+  padding: 10px 20px;
   font-size: 150%;
   font-family: sans-serif;
   font-weight: 700;
-  text-decoration: none;
   border: 0;
   border-radius: 8px;
   background-color: @gold;
   color: #fff;
-  box-shadow: 0px 15px 0px @darkgold, 0px 9px 25px rgba(0, 0, 0, .7);
-  transition: all .1s ease;
+  box-shadow: 0 15px 0 @darkgold, 0px 9px 25px rgba(0, 0, 0, .7);
+  transition: all 200ms ease;
 }
 
 .button:active, .button:hover {
-  cursor: pointer;
-  box-shadow: 0px 3px 0px @darkgold, 0px 3px 6px rgba(0, 0, 0, .9);
-  position: relative;
-  top: 10px;
+  box-shadow: 0 3px 0 @darkgold, 0px 3px 6px rgba(0, 0, 0, .9);
+  transform: translateY(12px);
+}
+
+.unicorn-heading-1 {
+  color: #663851;
+  font-size: 300%;
+  font-family: sans-serif;
 }
