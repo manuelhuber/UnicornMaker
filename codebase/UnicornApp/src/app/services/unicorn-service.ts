@@ -19,41 +19,55 @@ export class UnicornService {
   private unicorn : Unicorn;
 
   constructor (private router : Router) {
-    router.events.subscribe(a => console.log(a));3
+    router.events.subscribe(a => console.log(a));
     this.unicorn = this.unicornSubject.getValue();
   }
 
+  /**
+   * Returns a observable unicorn
+   */
   getUnicorn () : BehaviorSubject<Unicorn> {
     return this.unicornSubject;
   }
 
+  /**
+   * set Name and update the observable
+   */
   setName (name : string) : void {
     this.unicorn.name = name;
     this.unicornSubject.next(this.unicorn);
   }
 
-  getName() : string {
-    return this.unicorn.name;
-  }
-
+  /**
+   * set Body and update the observable
+   */
   setBody (id : number) : void {
     this.unicorn.body = id;
     this.unicornSubject.next(this.unicorn);
   }
 
+  /**
+   * set Hat and update the observable
+   */
   setHat (id : number) : void {
     this.unicorn.hat = id;
     this.unicornSubject.next(this.unicorn);
   }
 
+  /**
+   * set Wings and update the observable
+   */
   setWings (id : number) : void {
     this.unicorn.wings = id;
     this.unicornSubject.next(this.unicorn);
   }
 
+  /**
+   * set Shoes and update the observable
+   */
   setShoes (id : number) : void {
     this.unicorn.shoes = id;
     this.unicornSubject.next(this.unicorn);
   }
-  
+
 }
