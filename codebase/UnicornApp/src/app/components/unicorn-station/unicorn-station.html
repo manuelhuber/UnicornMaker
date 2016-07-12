@@ -3,6 +3,10 @@
     <img class="unicorn-station-logo" src="/app/assets/logo.png" alt="">
     <option-menu class="unicorn-station-menu"></option-menu>
   </div>
+  <div class="unicorn-station-name">
+    <div class="unicorn-station-name-label">enter your name here:</div>
+    <input class="unicorn-station-name-input" type="text" [(ngModel)]="name" maxlength="24">
+  </div>
   <div class="unicorn-station-save">
     <button (click)="previous()">Prev</button>
     <button class="button" (click)="save()">Save</button>

@@ -1,3 +1,5 @@
+@import "../../app.global.less";
+
 .unicorn-station {
   background: url("/app/assets/meadow.jpg") center;
 }
@@ -25,8 +27,32 @@
   padding: 30px;
 }
 
+.unicorn-station-name {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
 .unicorn-station-menu {
   flex-grow: 1;
   position: relative;
 
+}
+
+.unicorn-station-name-label {
+  color: @lightcolor;
+  font-size: 20px;
+}
+
+.unicorn-station-name-input {
+  font-size: 20px;
+  font-family: cursive;
+  font-weight: bold;
+  font-variant: small-caps;
+  background: #171717;
+  color: @mediumcolor;
+  border: black;
+  text-align: center;
 }
