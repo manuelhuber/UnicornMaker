@@ -1,7 +1,53 @@
-.unicorn-display {
+.unicorn-display-wrapper {
+  width: 100%;
+  max-width: 854px;
+  display: inline-block;
   position: relative;
+}
+
+.unicorn-display-wrapper:after {
+  content: "";
+  display: block;
+  padding-top: 88.5%;
+}
+
+.unicorn-display {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.unicorn-display-image-wrapper {
+  position: absolute;
+}
+
+.unicorn-display-image {
+  object-fit: contain;
 }
 
 .unicorn-display-body {
   object-fit: contain;
+}
+
+.unicorn-display-image-hat {
+  height: 18%;
+  top: 10%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+}
+
+.unicorn-display-image-shoes {
+  width: 53%;
+  bottom: 2.5%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.unicorn-display-image-wings {
+  width: 40%;
+  top: 33.5%;
+  left: 68%;
+  transform: translate(-50%, -50%);
 }

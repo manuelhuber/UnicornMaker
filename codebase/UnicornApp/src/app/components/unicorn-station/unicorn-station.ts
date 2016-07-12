@@ -30,12 +30,4 @@ export class UnicornStation {
     this.next();
   }
 
-  nameIt () {
-    console.log('naming');
-    this.unicornService.setName('foobar');
-  }
-
-  bodyChange (id : number) : void {
-    this.unicornService.setBody(this.i++);
-  }
 }

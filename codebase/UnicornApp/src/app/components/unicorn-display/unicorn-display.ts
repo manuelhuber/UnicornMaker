@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
+import {NgIf} from '@angular/common';
 import {UnicornService} from "../../services/unicorn-service";
 import {OptionService} from "../../services/option-service";
 
@@ -6,7 +7,7 @@ import {OptionService} from "../../services/option-service";
   selector: 'unicorn-display',
   pipes: [],
   providers: [],
-  directives: [],
+  directives: [NgIf],
   templateUrl: './unicorn-display.html',
   styleUrls: ['./unicorn-display.less']
 })
@@ -16,6 +17,9 @@ import {OptionService} from "../../services/option-service";
  */
 export class UnicornDisplay {
   bodyUrl : string;
+  hatUrl : string;
+  shoesUrl : string;
+  wingsUrl : string;
 
   constructor (unicornService : UnicornService, private optionService : OptionService) {
     console.log(unicornService.getUnicorn().getValue());
@@ -25,9 +29,10 @@ export class UnicornDisplay {
   }
 
   updateUrls (unicorn : Unicorn) : void {
-    if (unicorn.body) {
-      this.optionService.getBodyUrlForId(unicorn.body).subscribe(url => this.bodyUrl = url);
-    }
+    this.optionService.getBodyUrlForId(unicorn.body).subscribe(url => this.bodyUrl = url);
+    this.optionService.getHatUrlForId(unicorn.hat).subscribe(url => this.hatUrl = url);
+    this.optionService.getShoesUrlForId(unicorn.shoes).subscribe(url => this.shoesUrl = url);
+    this.optionService.getWingsUrlForId(unicorn.wings).subscribe(url => this.wingsUrl = url);
 
   }
 }

@@ -1,3 +1,16 @@
-<div class="unicorn-display full-size">
-  <img class="unicorn-display-body full-size" [src]="bodyUrl" alt="">
+<div class="unicorn-display-wrapper">
+  <div class="unicorn-display">
+    <div class="unicorn-display-image-wrapper full-size">
+      <img *ngIf="bodyUrl" class="unicorn-display-image full-size" [src]="bodyUrl" alt="">
+    </div>
+    <div class="unicorn-display-image-wrapper unicorn-display-image-hat">
+      <img *ngIf="hatUrl" class="unicorn-display-image full-size" [src]="hatUrl" alt="">
+    </div>
+    <div class="unicorn-display-image-wrapper unicorn-display-image-shoes">
+      <img *ngIf="shoesUrl" class="unicorn-display-image full-size" [src]="shoesUrl" alt="">
+    </div>
+    <div class="unicorn-display-image-wrapper unicorn-display-image-wings">
+      <img *ngIf="wingsUrl" class="unicorn-display-image full-size" [src]="wingsUrl" alt="">
+    </div>
+  </div>
 </div>

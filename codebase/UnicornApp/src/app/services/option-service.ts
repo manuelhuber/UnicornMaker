@@ -2,8 +2,7 @@ import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs'
 import 'rxjs/add/operator/map';
-
-const BASE : string = 'http://localhost:5001/';
+import {SERVER} from '../app';
 
 @Injectable()
 /**
@@ -77,18 +76,23 @@ export class OptionService {
   }
 
   private get (path : string) : any {
-    return this.http.get(`${BASE}${ path }`)
-      .map((res) => res.json());
+    return this.http.get(`${SERVER}${ path }`)
+      .map((res) => res.json())
+      // Caching
+      .publishReplay(1)
+      .refCount();
   }
 
   private getOptionByIdFromArray (options : Option[], id : number) : string {
-    return options.reduce((previousValue, currentValue) => {
+    let option : Option = options.reduce((previousValue, currentValue) => {
       if (previousValue) {
         return previousValue;
       }
       if (currentValue.id === id) {
         return currentValue;
       }
-    }, undefined).url;
+    }, undefined);
+
+    return option ? option.url : '';
   }
 }

@@ -28,22 +28,10 @@ export class OptionMenu {
   shoesId : number;
 
   constructor (optionService : OptionService, private unicornService : UnicornService) {
-    optionService.getBodies().subscribe((bodies : Option[]) => {
-      this.bodies = bodies;
-      console.log(this.bodies);
-    });
-    // optionService.getHats().subscribe((hats : Option[]) => {
-    //   this.hats = hats;
-    //   console.log(this.hats);
-    // });
-    // optionService.getWings().subscribe((wings : Option[]) => {
-    //   this.wings = wings;
-    //   console.log(this.wings);
-    // });
-    // optionService.getShoes().subscribe((shoes : Option[]) => {
-    //   this.shoes = shoes;
-    //   console.log(this.shoes);
-    // });
+    optionService.getBodies().subscribe((bodies : Option[]) => this.bodies = bodies);
+    optionService.getHats().subscribe((hats : Option[]) => this.hats = hats);
+    optionService.getWings().subscribe((wings : Option[]) => this.wings = wings);
+    optionService.getShoes().subscribe((shoes : Option[]) => this.shoes = shoes);
   }
 
   updateBody (id : number) : void {

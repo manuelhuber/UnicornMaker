@@ -18,6 +18,12 @@ export class OptionMenuCategory {
   @Input()
   id : number;
 
+  none : Option = {
+    url: 'https://upload.wikimedia.org/wikipedia/en/b/ba/Red_x.svg',
+    name: 'None',
+    id: 0
+  };
+
   @Output()
   update : EventEmitter<number> = new EventEmitter<number>();
 
