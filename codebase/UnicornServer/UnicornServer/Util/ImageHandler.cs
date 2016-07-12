@@ -24,22 +24,22 @@ namespace UnicornServer.Util
 
     public HttpResponseMessage GetBodyImage(int id)
     {
-      return GetHttpResponse("Body", id);
+      return GetHttpResponse("body", id);
     }
 
     public HttpResponseMessage GetHatImage(int id)
     {
-      return GetHttpResponse("Hat", id);
+      return GetHttpResponse("hat", id);
     }
 
     public HttpResponseMessage GetWingsImage(int id)
     {
-      return GetHttpResponse("Wings", id);
+      return GetHttpResponse("wings", id);
     }
 
     public HttpResponseMessage GetShoesImage(int id)
     {
-      return GetHttpResponse("Shoes", id);
+      return GetHttpResponse("shoes", id);
     }
 
     private HttpResponseMessage GetHttpResponse(string type, int id)

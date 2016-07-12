@@ -63,9 +63,9 @@ namespace UnicornServer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Body_1 {
+        internal static System.Drawing.Bitmap body_1 {
             get {
-                object obj = ResourceManager.GetObject("Body_1", resourceCulture);
+                object obj = ResourceManager.GetObject("body_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace UnicornServer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Body_2 {
+        internal static System.Drawing.Bitmap body_2 {
             get {
-                object obj = ResourceManager.GetObject("Body_2", resourceCulture);
+                object obj = ResourceManager.GetObject("body_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace UnicornServer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Body_3 {
+        internal static System.Drawing.Bitmap body_3 {
             get {
-                object obj = ResourceManager.GetObject("Body_3", resourceCulture);
+                object obj = ResourceManager.GetObject("body_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace UnicornServer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Body_4 {
+        internal static System.Drawing.Bitmap body_4 {
             get {
-                object obj = ResourceManager.GetObject("Body_4", resourceCulture);
+                object obj = ResourceManager.GetObject("body_4", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace UnicornServer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Body_5 {
+        internal static System.Drawing.Bitmap body_5 {
             get {
-                object obj = ResourceManager.GetObject("Body_5", resourceCulture);
+                object obj = ResourceManager.GetObject("body_5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace UnicornServer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Body_6 {
+        internal static System.Drawing.Bitmap body_6 {
             get {
-                object obj = ResourceManager.GetObject("Body_6", resourceCulture);
+                object obj = ResourceManager.GetObject("body_6", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

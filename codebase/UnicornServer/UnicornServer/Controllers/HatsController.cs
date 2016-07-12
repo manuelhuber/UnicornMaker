@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -44,7 +45,14 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Hat[]))]
     public IHttpActionResult GetHats()
     {
-      return Ok(Connector.GetAllHats());
+            var hats = Connector.GetAllHats();
+            var dto = new List<OptionDTO>();
+            hats.ForEach(hat =>
+            {
+              var uri = Url.Link("getHatImageById", new {id = hat.Id});
+              dto.Add(OptionMapper.optionToDto(hat, uri));
+            });
+            return Ok(dto);
     }
 
     /// <summary>

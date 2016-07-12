@@ -118,23 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Body_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Body\Body_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="body_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Body\body_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Body_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Body\Body_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="body_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Body\body_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Body_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Body\Body_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="body_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Body\body_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Body_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Body\Body_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="body_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Body\body_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Body_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Body\Body_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="body_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Body\body_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Body_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Body\Body_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="body_6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Body\body_6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hat_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Hat\hat_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

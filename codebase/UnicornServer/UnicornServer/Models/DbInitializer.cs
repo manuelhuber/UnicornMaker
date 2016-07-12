@@ -9,7 +9,7 @@ namespace UnicornServer.Models
       AddWings(context);
       AddBodies(context);
       AddShoes(context);
-      AddWings(context);
+      AddHats(context);
       base.Seed(context);
     }
 
