@@ -59,7 +59,7 @@ namespace UnicornServer.Controllers
     /// The image url for the wings with the given ID
     /// </summary>
     [HttpGet]
-    [Route("{id}")]
+    [Route("{id}", Name = "getWingsImageById")]
     [ResponseType(typeof(Object))]
     public HttpResponseMessage GetWingsImage(int id)
     {

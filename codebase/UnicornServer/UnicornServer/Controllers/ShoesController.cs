@@ -49,7 +49,7 @@ namespace UnicornServer.Controllers
       var dto = new List<OptionDTO>();
       shoes.ForEach(shoe =>
       {
-        var uri = Url.Link("getShoeImageById", new {id = shoe.Id});
+        var uri = Url.Link("getShoesImageById", new {id = shoe.Id});
         dto.Add(OptionMapper.optionToDto(shoe, uri));
       });
       return Ok(dto);
@@ -59,7 +59,7 @@ namespace UnicornServer.Controllers
     /// The image url for the shoes with the given ID
     /// </summary>
     [HttpGet]
-    [Route("{id}")]
+    [Route("{id}", Name = "getShoesImageById")]
     [ResponseType(typeof(Object))]
     public HttpResponseMessage GetShoesImage(int id)
     {
