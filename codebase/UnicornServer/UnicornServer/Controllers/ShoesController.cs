@@ -38,7 +38,7 @@ namespace UnicornServer.Controllers
     }
 
     /// <summary>
-    /// Returns an array of shoes (id + name)
+    /// Returns id, name and URL for all shoes
     /// </summary>
     [HttpGet]
     [Route("")]

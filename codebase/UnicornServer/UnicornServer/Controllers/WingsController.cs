@@ -38,7 +38,7 @@ namespace UnicornServer.Controllers
     }
 
     /// <summary>
-    /// Returns an array of wings (id + name)
+    /// Returns id, name and URL for all wings
     /// </summary>
     [HttpGet]
     [Route("")]

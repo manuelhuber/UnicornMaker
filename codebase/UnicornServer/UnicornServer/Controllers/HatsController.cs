@@ -38,21 +38,21 @@ namespace UnicornServer.Controllers
     }
 
     /// <summary>
-    /// Returns an array of hats (id + name)
+    /// Returns id, name and URL for every hat
     /// </summary>
     [HttpGet]
     [Route("")]
     [ResponseType(typeof(Hat[]))]
     public IHttpActionResult GetHats()
     {
-            var hats = Connector.GetAllHats();
-            var dto = new List<OptionDTO>();
-            hats.ForEach(hat =>
-            {
-              var uri = Url.Link("getHatImageById", new {id = hat.Id});
-              dto.Add(OptionMapper.optionToDto(hat, uri));
-            });
-            return Ok(dto);
+      var hats = Connector.GetAllHats();
+      var dto = new List<OptionDTO>();
+      hats.ForEach(hat =>
+      {
+        var uri = Url.Link("getHatImageById", new {id = hat.Id});
+        dto.Add(OptionMapper.optionToDto(hat, uri));
+      });
+      return Ok(dto);
     }
 
     /// <summary>
