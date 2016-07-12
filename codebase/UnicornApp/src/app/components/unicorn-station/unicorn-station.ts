@@ -36,7 +36,7 @@ export class UnicornStation {
   }
 
   save () : void {
-    // TODO: save unicorn
+    this.unicornService.save();
     this.next();
   }
 

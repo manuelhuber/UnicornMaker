@@ -15,7 +15,7 @@ import {UnicornService} from "../../services/unicorn-service";
  */
 export class SaveScreen {
   @Input()
-  previous:Function;
+  previous : Function;
 
   unicornlink : string = "http://www.unicorn-maker.com/unicorn/blablaba";
   unicornName : string;
@@ -24,6 +24,10 @@ export class SaveScreen {
     unicornService.getUnicorn().subscribe((unicorn : Unicorn) => {
       this.unicornName = unicorn.name;
     });
+    unicornService.getCurrentUrl().subscribe(url => this.unicornlink = url);
   }
 
+  copyLinkToClipboard () : void {
+    window.prompt("Copy to clipboard: Ctrl+C, Enter", this.unicornlink);
+  }
 }

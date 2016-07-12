@@ -11,7 +11,7 @@ import {UnicornService} from "../services/unicorn-service";
 @Component({
   selector: 'main',
   pipes: [],
-  providers: [OptionService, UnicornService],
+  providers: [],
   directives: [WelcomeScreen, UnicornStation, SaveScreen, UnicornDisplay, NgIf],
   templateUrl: './main.html',
   styleUrls: ['./main.less']
@@ -25,10 +25,6 @@ export class Main {
   public total : number = 2;
   public boundNext : Function;
   public boundPrevious : Function;
-
-  constructor (service : OptionService) {
-    service.getBodies().subscribe(a => console.log(a));
-  }
 
   public ngOnInit () {
     this.boundNext = this.next.bind(this);
