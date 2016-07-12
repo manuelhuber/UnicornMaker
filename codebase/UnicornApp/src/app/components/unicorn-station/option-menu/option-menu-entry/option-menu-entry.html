@@ -1,4 +1,6 @@
 <div class="option-menu-entry full-size">
-  <img *ngIf="option.url" class="option-menu-entry-image" [src]="option.url" alt="">
+  <div>
+    <img *ngIf="option.url" class="option-menu-entry-image" [src]="option.url" alt="">
+  </div>
   <div>{{option.name}}</div>
 </div>

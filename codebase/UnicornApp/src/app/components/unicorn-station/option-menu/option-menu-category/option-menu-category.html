@@ -1,8 +1,8 @@
 <div class="option-menu-category">
-  <div class="option-menu-entry-wrapper">
-    <option-menu-entry [option]="none" (click)="changeId(0)"></option-menu-entry>
-  </div>
   <div class="option-menu-entry-wrapper" *ngFor="let option of options">
     <option-menu-entry [option]="option" (click)="changeId(option.id)"></option-menu-entry>
+  </div>
+  <div class="option-menu-entry-wrapper">
+    <option-menu-entry [option]="none" (click)="changeId(0)"></option-menu-entry>
   </div>
 </div>

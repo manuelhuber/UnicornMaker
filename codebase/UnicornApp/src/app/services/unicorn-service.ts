@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
 import {BehaviorSubject} from 'rxjs'
 
 @Injectable()
@@ -17,7 +18,8 @@ export class UnicornService {
   });
   private unicorn : Unicorn;
 
-  constructor () {
+  constructor (private router : Router) {
+    router.events.subscribe(a => console.log(a));3
     this.unicorn = this.unicornSubject.getValue();
   }
 

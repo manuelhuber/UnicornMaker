@@ -35,17 +35,17 @@ namespace UnicornServer.Models
 
     private void AddShoes(DatabaseContext context)
     {
-      context.Shoes.Add(new Shoes() {Id = 1, Name = "Blue Shoes"});
-      context.Shoes.Add(new Shoes() {Id = 2, Name = "Purple Shoes"});
-      context.Shoes.Add(new Shoes() {Id = 3, Name = "Red Shoes"});
+      context.Shoes.Add(new Shoes() {Id = 1, Name = "Pumps"});
+      context.Shoes.Add(new Shoes() {Id = 2, Name = "Wellingtons"});
+      context.Shoes.Add(new Shoes() {Id = 3, Name = "Socks"});
     }
 
     private void AddHats(DatabaseContext context)
     {
-      context.Hats.Add(new Hat() {Id = 1, Name = "Blue Hat"});
-      context.Hats.Add(new Hat() {Id = 2, Name = "Purple Hat"});
-      context.Hats.Add(new Hat() {Id = 3, Name = "Red Hat"});
-      context.Hats.Add(new Hat() {Id = 4, Name = "Yellow Hat"});
+      context.Hats.Add(new Hat() {Id = 1, Name = "Crown"});
+      context.Hats.Add(new Hat() {Id = 2, Name = "Old hat"});
+      context.Hats.Add(new Hat() {Id = 3, Name = "Fes"});
+      context.Hats.Add(new Hat() {Id = 4, Name = "Bow"});
     }
   }
 }
