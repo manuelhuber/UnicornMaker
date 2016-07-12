@@ -32,6 +32,10 @@ export class UnicornService {
     this.unicornSubject.next(this.unicorn);
   }
 
+  getName() : string {
+    return this.unicorn.name;
+  }
+
   setBody (id : number) : void {
     this.unicorn.body = id;
     this.unicornSubject.next(this.unicorn);
@@ -51,5 +55,5 @@ export class UnicornService {
     this.unicorn.shoes = id;
     this.unicornSubject.next(this.unicorn);
   }
-
+  
 }

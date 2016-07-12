@@ -1,4 +1,5 @@
 import {Component, Input} from "@angular/core";
+import {UnicornService} from "../../services/unicorn-service";
 
 @Component({
   selector: 'save-screen',
@@ -16,6 +17,13 @@ export class SaveScreen {
   @Input()
   previous:Function;
 
-  unicornlink:string = "http://www.unicorn-maker.com/unicorn/blablaba";
+  unicornlink : string = "http://www.unicorn-maker.com/unicorn/blablaba";
+  unicornName : string;
+
+  constructor (private unicornService : UnicornService) {
+    unicornService.getUnicorn().subscribe((unicorn : Unicorn) => {
+      this.unicornName = unicorn.name;
+    });
+  }
 
 }
