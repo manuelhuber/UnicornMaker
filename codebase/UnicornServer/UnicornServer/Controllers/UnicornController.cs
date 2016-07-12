@@ -1,4 +1,8 @@
-﻿﻿using System.Web.Http;
+﻿using System;
+using System.Net.Http;
+using System.Web.Cors;
+using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using System.Web.Http.Results;
 using UnicornServer.Connectors;
@@ -50,11 +54,22 @@ namespace UnicornServer.Controllers
     [HttpPost]
     [Route("")]
     [ResponseType(typeof(Unicorn))]
-    public CreatedNegotiatedContentResult<Unicorn> AddUnicorn([FromBody] Unicorn unicorn)
+    public HttpResponseMessage AddUnicorn([FromBody] Unicorn unicorn)
     {
+      // Create Response with unicorn
       var uni = Connector.AddUnicorn(unicorn);
+      var response = Request.CreateResponse(uni);
+
+      // Add location URL
       var uri = Url.Link("getUnicornById", new {id = uni.Id});
-      return Created(uri, uni);
+      response.Headers.Location = new Uri(uri);
+
+      // Expose Location
+      var corsResult = new CorsResult();
+      corsResult.AllowedExposedHeaders.Add("Location");
+      response.WriteCorsHeaders(corsResult);
+
+      return response;
     }
   }
 }
