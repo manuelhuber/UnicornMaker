@@ -63,7 +63,7 @@ namespace UnicornServer.Controllers
     [ResponseType(typeof(Object))]
     public HttpResponseMessage GetShoesImage(int id)
     {
-      return ImageHandler.GetHatImage(id);
+      return ImageHandler.GetShoesImage(id);
     }
 
     /// <summary>
