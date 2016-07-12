@@ -149,6 +149,25 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="Global.asax" />
+    <None Include="Images\Body\Body_1.png" />
+    <None Include="Images\Body\Body_2.png" />
+    <None Include="Images\Body\Body_3.png" />
+    <None Include="Images\Body\Body_4.png" />
+    <None Include="Images\Body\Body_5.png" />
+    <None Include="Images\Body\Body_6.png" />
+    <None Include="Images\Hat\hat_1.png" />
+    <None Include="Images\Hat\hat_2.png" />
+    <None Include="Images\Hat\hat_3.png" />
+    <None Include="Images\Hat\hat_4.png" />
+    <None Include="Images\Shoes\shoes_1.png" />
+    <None Include="Images\Shoes\shoes_2.png" />
+    <None Include="Images\Shoes\shoes_3.png" />
+    <None Include="Images\Wings\wings_1.png" />
+    <None Include="Images\Wings\wings_2.png" />
+    <None Include="Images\Wings\wings_3.png" />
+    <None Include="Images\Wings\wings_4.png" />
+    <None Include="Images\Wings\wings_5.png" />
+    <None Include="Images\Wings\wings_6.png" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Web.config" />
@@ -177,6 +196,11 @@
     <Compile Include="Models\Option.cs" />
     <Compile Include="Models\Unicorn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Util\ImageHandler.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +217,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

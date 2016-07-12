@@ -1,13 +1,11 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Web.Hosting;
+using UnicornServer.Properties;
 
 namespace UnicornServer.Util
 {
@@ -44,35 +42,21 @@ namespace UnicornServer.Util
       return GetHttpResponse("Shoes", id);
     }
 
-    private HttpResponseMessage GetHttpResponse(string folder, int id)
+    private HttpResponseMessage GetHttpResponse(string type, int id)
     {
-      var filename = folder + "_" + id + ".png";
-      var path = "~/" + _filesDirectory + "/" + folder + "/" + filename;
-      if (!Exists(filename))
+      var filename = type + "_" + id;
+      var image = (Image) Resources.ResourceManager.GetObject(filename);
+      if (image == null)
       {
         return new HttpResponseMessage(HttpStatusCode.BadRequest);
       }
-
+      var memoryStream = new MemoryStream();
       var result = new HttpResponseMessage(HttpStatusCode.OK);
-      var filePath = HostingEnvironment.MapPath(path);
-      using (var fileStream = new FileStream(filePath, FileMode.Open))
-      {
-        var image = Image.FromStream(fileStream);
-        var memoryStream = new MemoryStream();
-        image.Save(memoryStream, ImageFormat.Png);
-        result.Content = new ByteArrayContent(memoryStream.ToArray());
-        result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/png");
+      image.Save(memoryStream, ImageFormat.Png);
+      result.Content = new ByteArrayContent(memoryStream.ToArray());
+      result.Content.Headers.ContentType = new MediaTypeHeaderValue("image/png");
 
-        return result;
-      }
-    }
-
-    private bool Exists(string name)
-    {
-      //make sure we dont access directories outside of our store for security reasons
-      var file = Directory.GetFiles(_filesDirectory, name, SearchOption.AllDirectories)
-        .FirstOrDefault();
-      return file != null;
+      return result;
     }
   }
 }

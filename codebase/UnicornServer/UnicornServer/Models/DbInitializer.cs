@@ -8,6 +8,8 @@ namespace UnicornServer.Models
     {
       AddWings(context);
       AddBodies(context);
+      AddShoes(context);
+      AddWings(context);
       base.Seed(context);
     }
 
