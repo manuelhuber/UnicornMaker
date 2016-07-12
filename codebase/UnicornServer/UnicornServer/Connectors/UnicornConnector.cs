@@ -37,9 +37,16 @@ namespace UnicornServer.Connectors
     /// <summary>
     /// Add a unicorn to the DB
     /// </summary>
-    public void AddUnicorn(Unicorn unicorn)
+    public Unicorn AddUnicorn(Unicorn unicorn)
     {
-      Context.Unicorns.Add(unicorn);
+      var result = Context.Unicorns.Add(unicorn);
+      Context.SaveChanges();
+      return result;
+    }
+
+    public Unicorn GetUnicornById(int id)
+    {
+      return Context.Unicorns.Find(id);
     }
   }
 }

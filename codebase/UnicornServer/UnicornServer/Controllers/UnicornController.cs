@@ -1,11 +1,8 @@
-﻿﻿using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Web.Http;
+﻿﻿using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Http.Results;
 using UnicornServer.Connectors;
 using UnicornServer.Models;
-using UnicornServer.Util;
 
 namespace UnicornServer.Controllers
 {
@@ -38,20 +35,11 @@ namespace UnicornServer.Controllers
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpGet]
-    [Route("{id}")]
+    [Route("{id}", Name = "getUnicornById")]
     [ResponseType(typeof(Unicorn))]
     public Unicorn GetUnicorn(int id)
     {
-      var unicornWithId = new Unicorn();
-      var unicorns = Connector.GetAllUnicorns();
-      unicorns.ForEach(unicorn =>
-      {
-        if (unicorn.Id == id)
-        {
-          unicornWithId = unicorn;
-        }
-      });
-      return unicornWithId;
+      return Connector.GetUnicornById(id);
     }
 
     /// <summary>
@@ -62,9 +50,11 @@ namespace UnicornServer.Controllers
     [HttpPost]
     [Route("")]
     [ResponseType(typeof(Unicorn))]
-    public void AddUnicorn([FromBody] Unicorn unicorn)
+    public CreatedNegotiatedContentResult<Unicorn> AddUnicorn([FromBody] Unicorn unicorn)
     {
-      Connector.AddUnicorn(unicorn);
+      var uni = Connector.AddUnicorn(unicorn);
+      var uri = Url.Link("getUnicornById", new {id = uni.Id});
+      return Created(uri, uni);
     }
   }
 }
