@@ -12,7 +12,10 @@ let fluff : string[] = [
   'love',
   'magic',
   'friendship',
-  'fluffy'
+  'fluffy',
+  'popcorn',
+  '♥',
+  'sweets'
 ];
 
 @Injectable()

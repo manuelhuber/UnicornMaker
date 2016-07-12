@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, ROUTER_DIRECTIVES} from '@angular/router';
 import {UnicornService} from '../../services/unicorn-service';
 import {UnicornDisplay} from '../unicorn-display/unicorn-display';
 
@@ -7,7 +7,7 @@ import {UnicornDisplay} from '../unicorn-display/unicorn-display';
   selector: 'view-only',
   pipes: [],
   providers: [UnicornService],
-  directives: [UnicornDisplay],
+  directives: [UnicornDisplay, ROUTER_DIRECTIVES],
   templateUrl: './view-only.html',
   styleUrls: ['./view-only.less']
 })
