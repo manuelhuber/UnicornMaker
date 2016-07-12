@@ -15,22 +15,22 @@ namespace UnicornServer.Models
 
     private void AddWings(DatabaseContext context)
     {
-      context.Wings.Add(new Wings() {Id = 1, Name = "Blue Wings"});
-      context.Wings.Add(new Wings() {Id = 2, Name = "Purple Wings"});
-      context.Wings.Add(new Wings() {Id = 3, Name = "Red Wings"});
-      context.Wings.Add(new Wings() {Id = 4, Name = "Yellow Wings"});
-      context.Wings.Add(new Wings() {Id = 5, Name = "Green Wings"});
-      context.Wings.Add(new Wings() {Id = 6, Name = "Pink Wings"});
+      context.Wings.Add(new Wings() {Id = 1, Name = "Rainmaker"});
+      context.Wings.Add(new Wings() {Id = 2, Name = "Dreamweaver"});
+      context.Wings.Add(new Wings() {Id = 3, Name = "Firey Wings"});
+      context.Wings.Add(new Wings() {Id = 4, Name = "Angel's Grace"});
+      context.Wings.Add(new Wings() {Id = 5, Name = "Forest Sails"});
+      context.Wings.Add(new Wings() {Id = 6, Name = "Cupid's Joy"});
     }
 
     private void AddBodies(DatabaseContext context)
     {
-      context.Bodies.Add(new Body() {Id = 1, Name = "Blue Unicorn"});
-      context.Bodies.Add(new Body() {Id = 2, Name = "Green Unicorn"});
-      context.Bodies.Add(new Body() {Id = 3, Name = "Purple Unicorn"});
-      context.Bodies.Add(new Body() {Id = 4, Name = "Red Unicorn"});
-      context.Bodies.Add(new Body() {Id = 5, Name = "Yellow Unicorn"});
-      context.Bodies.Add(new Body() {Id = 6, Name = "Pink Unicorn"});
+      context.Bodies.Add(new Body() {Id = 1, Name = "Frosty"});
+      context.Bodies.Add(new Body() {Id = 2, Name = "Leaf"});
+      context.Bodies.Add(new Body() {Id = 3, Name = "Nightshade"});
+      context.Bodies.Add(new Body() {Id = 4, Name = "Fire"});
+      context.Bodies.Add(new Body() {Id = 5, Name = "York"});
+      context.Bodies.Add(new Body() {Id = 6, Name = "Luv"});
     }
 
     private void AddShoes(DatabaseContext context)
