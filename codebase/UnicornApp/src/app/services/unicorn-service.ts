@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
 import {Http, Headers, RequestOptions} from '@angular/http';
 import {BehaviorSubject} from 'rxjs';
 import {SERVER} from '../app';
@@ -32,10 +31,11 @@ export class UnicornService {
     body: 0,
     shoes: 0,
   });
+  // The url to share your (saved) unicorn with
   private url : BehaviorSubject<string> = new BehaviorSubject('');
   private unicorn : Unicorn;
 
-  constructor (private router : Router, private route : ActivatedRoute, private http : Http) {
+  constructor (private http : Http) {
     this.unicorn = this.unicornSubject.getValue();
   }
 
@@ -46,6 +46,9 @@ export class UnicornService {
     return this.unicornSubject;
   }
 
+  /**
+   * Returns a observable that contains the URL to show the latest saved unicorn
+   */
   getCurrentUrl () : BehaviorSubject<string> {
     return this.url;
   }
@@ -90,6 +93,9 @@ export class UnicornService {
     this.updateSubject();
   }
 
+  /**
+   * Saves the current Unicorn and updates the url as soon as the server responds
+   */
   save () : void {
     let headers : Headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
@@ -102,6 +108,9 @@ export class UnicornService {
       });
   }
 
+  /**
+   * Fetch the unicorn with the given ID from the server and set it as the current unicorn
+   */
   load (id : number) : void {
     this.http.get(`${SERVER}/v1/unicorns/${id}`).subscribe((res : any) => {
       this.unicorn = JSON.parse(res._body);
@@ -109,6 +118,9 @@ export class UnicornService {
     })
   }
 
+  /**
+   * Propagate the current unicorn to the subject
+   */
   private updateSubject () {
     this.unicornSubject.next(this.unicorn);
   }

@@ -1,12 +1,9 @@
 import {Component} from '@angular/core';
-import {NgIf} from '@angular/common'
-
+import {NgIf} from '@angular/common';
 import {WelcomeScreen} from './welcome-screen/welcome-screen';
 import {UnicornStation} from './unicorn-station/unicorn-station';
 import {SaveScreen} from './save-screen/save-screen';
-import {UnicornDisplay} from "./unicorn-display/unicorn-display";
-import {OptionService} from "../services/option-service";
-import {UnicornService} from "../services/unicorn-service";
+import {UnicornDisplay} from './unicorn-display/unicorn-display';
 
 @Component({
   selector: 'main',
@@ -17,7 +14,7 @@ import {UnicornService} from "../services/unicorn-service";
   styleUrls: ['./main.less']
 })
 /**
- * The
+ * The main component that manages the flow for the Unicorn creation process
  * Written by Manuel Huber
  */
 export class Main {
