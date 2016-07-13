@@ -177,6 +177,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Connectors\BodiesConnector.cs" />
     <Compile Include="Connectors\HatsConnector.cs" />
+    <Compile Include="Connectors\ImageConnector.cs" />
     <Compile Include="Connectors\ShoesConnector.cs" />
     <Compile Include="Connectors\UnicornConnector.cs" />
     <Compile Include="Connectors\WingsConnector.cs" />
@@ -201,7 +202,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Util\ImageHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
