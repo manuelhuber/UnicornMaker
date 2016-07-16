@@ -10,6 +10,7 @@ namespace UnicornServer.Models
       AddBodies(context);
       AddShoes(context);
       AddHats(context);
+      AddUnicorns(context);
       base.Seed(context);
     }
 
@@ -42,10 +43,17 @@ namespace UnicornServer.Models
 
     private void AddHats(DatabaseContext context)
     {
-      context.Hats.Add(new Hat() {Id = 1, Name = "Crown"});
+      context.Hats.Add(new Hat() {Id = 1, Name = "Bow"});
       context.Hats.Add(new Hat() {Id = 2, Name = "Old hat"});
       context.Hats.Add(new Hat() {Id = 3, Name = "Fes"});
-      context.Hats.Add(new Hat() {Id = 4, Name = "Bow"});
+      context.Hats.Add(new Hat() {Id = 4, Name = "Crown"});
+    }
+
+    private void AddUnicorns(DatabaseContext context)
+    {
+      context.Unicorns.Add(new Unicorn {Name = "Ice Queen", Body = 1, Hat = 4, Shoes = 1, Wings = 1});
+      context.Unicorns.Add(new Unicorn {Name = "Princess Rainbow", Body = 6, Hat = 1, Shoes = 2, Wings = 0});
+      context.Unicorns.Add(new Unicorn {Name = "a spooky ghost!", Body = 0, Hat = 2, Shoes = 2, Wings = 0});
     }
   }
 }
