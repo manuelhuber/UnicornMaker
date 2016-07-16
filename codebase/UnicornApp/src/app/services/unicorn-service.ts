@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Headers, RequestOptions} from '@angular/http';
+import {Http, Headers, RequestOptions, Response} from '@angular/http';
 import {BehaviorSubject} from 'rxjs';
 import {SERVER} from '../app';
 
@@ -100,8 +100,8 @@ export class UnicornService {
     let headers : Headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({headers: headers});
     this.http.post(`${SERVER}/v1/unicorns`, JSON.stringify(this.unicorn), options)
-      .subscribe(res => {
-        let id = JSON.parse(res._body).id;
+      .subscribe((res : Response) => {
+        let id = res.json().id;
         let random = fluff[Math.floor(Math.random() * fluff.length)];
         let url = window.location.href + random + '/' + id;
         this.url.next(url);
@@ -112,8 +112,8 @@ export class UnicornService {
    * Fetch the unicorn with the given ID from the server and set it as the current unicorn
    */
   load (id : number) : void {
-    this.http.get(`${SERVER}/v1/unicorns/${id}`).subscribe((res : any) => {
-      this.unicorn = JSON.parse(res._body);
+    this.http.get(`${SERVER}/v1/unicorns/${id}`).subscribe((res : Response) => {
+      this.unicorn = res.json();
       this.updateSubject();
     })
   }
