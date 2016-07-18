@@ -22,7 +22,6 @@ export class UnicornDisplay {
   wingsUrl : string;
 
   constructor (unicornService : UnicornService, private optionService : OptionService) {
-    console.log(unicornService.getUnicorn().getValue());
     unicornService.getUnicorn().subscribe((unicorn : Unicorn) => {
       this.updateUrls(unicorn);
     });
